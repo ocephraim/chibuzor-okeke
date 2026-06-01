@@ -6,6 +6,12 @@ const SERVICE_IMAGE = {
   strategy: { src: "src/assets/strategy.png", alt: "strategy" },
 };
 
+const ServiceImageContainer = styled.div`
+  display: block;
+  width: 100%;
+  height: auto;
+`;
+
 const ServiceImage = styled.img`
   display: block;
   width: 100%;

@@ -19,7 +19,9 @@ const StyledProject = styled.div`
   @media screen and (max-width: 657px) {
     gap: 1.6rem;
     padding: 0;
-    padding-bottom: 1.6rem;
+    padding-bottom: 2.4rem;
+    grid-column: span 1;
+    height: 35rem;
   }
 `;
 
@@ -99,6 +101,7 @@ const ProjectVersions = styled.div`
 
   @media screen and (max-width: 657px) {
     padding: 0;
+    gap: 0.4rem;
   }
 
   &::-webkit-scrollbar {
@@ -110,7 +113,6 @@ const ProjectVersions = styled.div`
     width: clamp(26rem, 78vw, 40rem);
     max-width: 400px;
     height: 100%;
-    min-height: 22rem;
 
     scroll-snap-align: start;
 
@@ -169,7 +171,11 @@ function Project({ project }) {
             key={v.id}
             type="button"
             aria-label={`${v.label} preview`}
-            style={{ backgroundImage: `url(${v.image})` }}
+            style={{
+              background: v.image ? `url(${v.image})` : "var(--color-accent2)",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+            }}
             onClick={() =>
               v.href && window.open(v.href, "_blank", "noopener,noreferrer")
             }

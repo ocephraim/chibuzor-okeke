@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const TIME_FORMATTER = new Intl.DateTimeFormat("en-GB", {
   hour: "numeric",
   minute: "numeric",
-  second: "numeric",
+  // second: "numeric",
   hour12: true,
   timeZoneName: "short",
 });

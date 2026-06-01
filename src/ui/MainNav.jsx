@@ -1,38 +1,17 @@
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import Button from "./Button";
-import ButtonShortcuts from "./ButtonShortcuts";
+
 import { useCopyEmail } from "../hooks/useCopyEmail";
-import { useEffect, useState } from "react";
 import { useBrowserTime } from "../hooks/useBrowserTime";
+import ButtonShortcuts from "./ButtonShortcuts";
+import Button from "./Button";
 import Icons from "./Icons";
+import MobileNav from "./MobileNav";
 
 const NavContainer = styled.div`
   height: 6rem;
-`;
-
-const MobileNav = styled.nav`
-  width: 100%;
-  height: 6rem;
-  margin: 0 auto;
-  padding: 0 2rem;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  background: transparent;
-  backdrop-filter: blur(10px);
-  mix-blend-mode: multiply;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-
-  @media screen and (min-width: 657px) {
-    display: none;
-  }
+  /* position: relative; */
 `;
 
 const Nav = styled.nav`
@@ -42,8 +21,10 @@ const Nav = styled.nav`
   padding: 0 4.8rem;
 
   background: transparent;
-  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(10px); */
 
+  /* border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.03); */
   /* background: ${(props) =>
     props.$isScrolled
       ? "linear-gradient(to bottom, rgba(var(--color-bg-rgb), 0.5) 20%, transparent 80%)"
@@ -87,17 +68,6 @@ const NavList = styled.ul`
   align-items: center;
   justify-content: flex-end;
   min-width: 22rem;
-
-  @media screen and (max-width: 657px) {
-    flex-direction: column-reverse;
-    align-items: flex-end;
-  }
-
-  span {
-    @media screen and (max-width: 657px) {
-      display: none;
-    }
-  }
 `;
 
 function NavClock() {
@@ -110,17 +80,16 @@ function NavClock() {
   );
 }
 
-const maxScroll =
-  document.documentElement.scrollHeight - document.documentElement.clientHeight;
-
 function MainNav() {
   const { copied, handleCopyEmail } = useCopyEmail();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     function handleScroll() {
+      const currentMaxScroll =
+        document.documentElement.scrollHeight - document.documentElement.clientHeight;
       setIsScrolled(window.scrollY > 30);
-      if (window.scrollY > maxScroll - 120) setIsScrolled(false);
+      if (window.scrollY > currentMaxScroll - 120) setIsScrolled(false);
     }
 
     window.addEventListener("scroll", handleScroll);
@@ -131,7 +100,7 @@ function MainNav() {
 
   return (
     <>
-      <NavContainer>
+      <NavContainer $isScrolled={isScrolled}>
         <Nav $isScrolled={isScrolled}>
           {!isScrolled && (
             <div>
@@ -160,12 +129,9 @@ function MainNav() {
             </Button>
           </NavList>
         </Nav>
-
-        <MobileNav>
-          <StyledNavLink to="/">Chibuzor Okeke</StyledNavLink>
-          <StyledNavLink to="/">• Menu</StyledNavLink>
-        </MobileNav>
       </NavContainer>
+
+      <MobileNav />
     </>
   );
 }

@@ -10,17 +10,15 @@ export const projects = [
       {
         id: "mobile",
         label: "Mobile",
-        image:
-          "https://res.cloudinary.com/diubh94u2/image/upload/q_auto/f_auto/v1777385719/grupa_kg2hzg.png",
+        image: "",
       },
       {
         id: "web",
         label: "Web",
-        image:
-          "https://res.cloudinary.com/diubh94u2/image/upload/q_auto/f_auto/v1777385713/grupa-1_kz9lne.png",
+        image: "",
       },
     ],
-    span: "3",
+    span: "2",
   },
 
   {
@@ -36,6 +34,35 @@ export const projects = [
         label: "Mobile",
         image:
           "https://res.cloudinary.com/diubh94u2/image/upload/q_auto/f_auto/v1777385720/ratham-1_kierzt.png",
+      },
+      {
+        id: "web",
+        label: "Web",
+        image:
+          "https://res.cloudinary.com/diubh94u2/image/upload/q_auto/f_auto/v1777385717/ratham_b8momb.png",
+      },
+    ],
+    span: "2",
+  },
+  {
+    id: "grupa",
+    companyName: "Grupa",
+    timeline: "2023 - 2024",
+    servicesRendered: ["design", "development"],
+    summary:
+      "Building an ecosystem to help innovations and elite Product teams build products faster ",
+    versions: [
+      {
+        id: "mobile",
+        label: "Mobile",
+        image:
+          "https://res.cloudinary.com/diubh94u2/image/upload/q_auto/f_auto/v1777385720/ratham-1_kierzt.png",
+      },
+      {
+        id: "web",
+        label: "Web",
+        image:
+          "https://res.cloudinary.com/diubh94u2/image/upload/q_auto/f_auto/v1777385717/ratham_b8momb.png",
       },
       {
         id: "web",
@@ -62,36 +89,6 @@ export const projects = [
           "https://res.cloudinary.com/diubh94u2/image/upload/q_auto/f_auto/v1777385723/watfootball_t0n1ij.png",
       },
     ],
-    span: "2",
-  },
-
-  {
-    id: "ratham",
-    companyName: "Ratham",
-    timeline: "2023 - 2024",
-    servicesRendered: ["design", "development"],
-    summary:
-      "Building an ecosystem to help innovations and elite Product teams build products faster ",
-    versions: [
-      {
-        id: "mobile",
-        label: "Mobile",
-        image:
-          "https://res.cloudinary.com/diubh94u2/image/upload/q_auto/f_auto/v1777385720/ratham-1_kierzt.png",
-      },
-      {
-        id: "web",
-        label: "Web",
-        image:
-          "https://res.cloudinary.com/diubh94u2/image/upload/q_auto/f_auto/v1777385717/ratham_b8momb.png",
-      },
-      {
-        id: "web",
-        label: "Web",
-        image:
-          "https://res.cloudinary.com/diubh94u2/image/upload/q_auto/f_auto/v1777385717/ratham_b8momb.png",
-      },
-    ],
-    span: "4",
+    span: "1",
   },
 ];

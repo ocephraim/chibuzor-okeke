@@ -15,6 +15,7 @@ const GlobalStyles = createGlobalStyle`
 
   //cta
   --color-accent: #4ca277;
+  --color-accent2: #DFC3C3;
 
   //corner smoothing
   --corner-smoothing: superellipse(1);

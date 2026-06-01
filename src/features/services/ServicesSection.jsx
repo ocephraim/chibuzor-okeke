@@ -56,6 +56,10 @@ const ServicesImage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background: url(src/assets/services_image_bg.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   max-width: 60rem;
   min-height: 40rem;
 
@@ -72,7 +76,7 @@ const ServicePreviewImage = styled.img`
 `;
 
 const ACTIVE_SERVICE_IMAGE = {
-  design: { src: "src/assets/design.png", alt: "design" },
+  design: { src: "src/assets/design.gif", alt: "design" },
   development: { src: "src/assets/dev.png", alt: "development" },
   strategy: { src: "src/assets/strategy.png", alt: "strategy" },
 };

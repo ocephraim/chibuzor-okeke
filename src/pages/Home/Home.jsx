@@ -13,7 +13,7 @@ const HeroSection = styled.section`
   align-items: flex-start;
 
   @media screen and (max-width: 657px) {
-    height: 64lvh;
+    height: 75lvh;
   }
 `;
 
@@ -32,6 +32,7 @@ const HeroContent = styled.div`
 
     @media screen and (max-width: 657px) {
       font-size: 1.4rem;
+      line-height: 145%;
     }
   }
 `;
@@ -39,6 +40,7 @@ const HeroContent = styled.div`
 const StyledHeader = styled.h1`
   font-size: 4.8rem;
   line-height: 110%;
+  letter-spacing: -2%;
   font-weight: 900;
 
   @media screen and (max-width: 657px) {

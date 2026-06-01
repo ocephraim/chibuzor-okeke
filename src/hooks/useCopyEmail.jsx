@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import toast from "react-hot-toast";
+import Button from "../ui/Button";
 
 const EMAIL = "ocephraim@gmail.com";
 
@@ -29,6 +31,28 @@ export function useCopyEmail() {
     try {
       await copyToClipboard(EMAIL);
       setCopied(true);
+
+      toast.success((t) => (
+        <span
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "4.8rem",
+          }}
+        >
+          Email copied!
+          <Button
+            variation="tertiary"
+            onClick={() => {
+              window.location.href = `mailto:${EMAIL}`;
+              toast.dismiss(t.id);
+            }}
+          >
+            Open Mail App
+          </Button>
+        </span>
+      ));
+
       window.clearTimeout(resetTimerRef.current);
       resetTimerRef.current = window.setTimeout(() => setCopied(false), 1200);
     } catch (error) {
