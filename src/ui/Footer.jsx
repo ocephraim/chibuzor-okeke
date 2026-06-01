@@ -4,7 +4,7 @@ import Icons from "./Icons";
 const StyledFooter = styled.footer`
   overflow: hidden;
   background-color: var(--color-text-800);
-  color: var(--color-text-25);
+  color: var(--color-text-50);
   font-weight: 500;
 
   display: flex;

@@ -11,7 +11,9 @@ const GlobalStyles = createGlobalStyle`
   --color-text-800: #221F1C;
   --color-text-600: #4F4C4A;
   --color-text-400: #85827F;
-  --color-text-25: #F2F0ED;
+  --color-text-200: #BFBBB8;
+  --color-text-100: #D6D3D0;
+ --color-text-50: #F2F0ED;
 
   //cta
   --color-accent: #4ca277;

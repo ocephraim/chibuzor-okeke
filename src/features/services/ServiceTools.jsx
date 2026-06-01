@@ -23,8 +23,56 @@ const designTools = {
   },
 };
 
+const devTools = {
+  reactjs: {
+    img: "src/assets/tools/development/reactjs.png",
+    alt: "reactjs",
+  },
+  webflow: {
+    img: "src/assets/tools/development/webflow.png",
+    alt: "webflow",
+  },
+  tailwindcss: {
+    img: "src/assets/tools/development/tailwindcss.png",
+    alt: "tailwindcss",
+  },
+  framer: {
+    img: "src/assets/tools/development/framer.png",
+    alt: "framer",
+  },
+  cursor: {
+    img: "src/assets/tools/development/cursor.png",
+    alt: "cursor",
+  },
+};
+
+const strategyTools = {
+  miro: {
+    img: "src/assets/tools/strategy/miro.png",
+    alt: "miro",
+  },
+  notion: {
+    img: "src/assets/tools/strategy/notion.png",
+    alt: "notion",
+  },
+  analytics: {
+    img: "src/assets/tools/strategy/analytics.png",
+    alt: "analytics",
+  },
+  linear: {
+    img: "src/assets/tools/strategy/linear.png",
+    alt: "linear",
+  },
+  hotjar: {
+    img: "src/assets/tools/strategy/hotjar.png",
+    alt: "hotjar",
+  },
+};
+
 const TOOLS = {
   design: designTools,
+  engineering: devTools,
+  strategy: strategyTools,
 };
 
 const Tools = styled.div`
@@ -51,6 +99,8 @@ const ToolItem = styled.div`
 const Tool = styled.img`
   width: 4.8rem;
   height: 4.8rem;
+  border: 1px solid var(--color-text-50);
+  border-radius: 0.8rem;
   object-fit: contain;
 `;
 

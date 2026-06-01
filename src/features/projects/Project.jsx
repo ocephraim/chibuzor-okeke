@@ -1,11 +1,11 @@
+import { motion } from "motion/react";
 import styled from "styled-components";
-import Icons from "../../ui/Icons";
 
-const StyledProject = styled.div`
+const StyledProject = styled(motion.div)`
   width: 100%;
   height: 43rem;
   padding: 2.4rem 1.6rem;
-  border-bottom: 1px solid rgba(var(--color-text-800-rgb), 0.1);
+  border-bottom: 1px solid var(--color-text-100);
 
   display: flex;
   flex-direction: column;
@@ -77,6 +77,18 @@ const ClientDetails = styled.div`
 const ProjectServices = styled.div`
   display: flex;
   gap: 0.8rem;
+
+  & p {
+    text-transform: capitalize;
+    text-decoration: underline;
+    color: var(--color-text-400);
+    font-weight: 500;
+    font-size: 1.2rem;
+
+    @media screen and (max-width: 657px) {
+      font-size: 1.1rem;
+    }
+  }
 `;
 
 const ProjectVersions = styled.div`
@@ -138,12 +150,22 @@ const ProjectVersions = styled.div`
   } */
 `;
 
-function Project({ project }) {
+function Project({ project, index = 0 }) {
   const { companyName, timeline, servicesRendered, summary, versions, span } =
     project;
 
   return (
-    <StyledProject $span={span}>
+    <StyledProject
+      initial={{ opacity: 0, y: 48 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.5,
+        ease: "easeOut",
+        delay: index * 0.08,
+      }}
+      viewport={{ once: false, amount: 0.2 }}
+      $span={span}
+    >
       <ProjectInfo>
         <ProjectDetails>
           <ClientDetails>
@@ -155,8 +177,8 @@ function Project({ project }) {
         </ProjectDetails>
 
         <ProjectServices>
-          {servicesRendered.map((service) => (
-            <Icons key={service} type={service} />
+          {servicesRendered.map((service, i) => (
+            <p key={i}>{service}</p>
           ))}
         </ProjectServices>
       </ProjectInfo>

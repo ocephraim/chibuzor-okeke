@@ -7,7 +7,7 @@ import { useCopyEmail } from "../../hooks/useCopyEmail";
 
 const StyledSection = styled.section`
   background: var(--color-text-800);
-  color: var(--color-text-25);
+  color: var(--color-text-50);
 
   flex-direction: row;
   align-items: stretch;
@@ -44,7 +44,7 @@ const StyledForm = styled.form`
 
   input,
   textarea {
-    background: var(--color-text-25);
+    background: var(--color-text-50);
     mix-blend-mode: soft-light;
     outline: none;
     border-radius: 1.2rem;
@@ -69,7 +69,7 @@ const ButtonContainer = styled.div`
 const GameDiv = styled.div`
   width: 45%;
   height: auto;
-  background-color: var(--color-text-25);
+  background-color: var(--color-text-50);
 
   @media screen and (max-width: 657px) {
     width: 100%;

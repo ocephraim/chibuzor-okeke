@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { useEffect, useRef } from "react";
+import { Heading2 } from "../../ui/Text";
 
 const progressFill = keyframes`
   from {
@@ -36,30 +36,22 @@ const ServiceContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-
-  @media screen and (max-width: 657px) {
-    align-items: center;
-  }
+  gap: 2.4rem;
 `;
 
-const ServiceText = styled.div`
-  display: flex;
-  text-align: left;
-  flex-direction: column;
-  gap: 0.8rem;
+const ServiceHeader = styled(Heading2)`
+  color: ${(props) =>
+    props.$isOpen ? "var(--color-text-800)" : "var(--color-text-200)"};
+`;
 
-  & div {
-    display: flex;
-    gap: 0.6rem;
-    align-items: center;
+const ServiceItemContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1.2rem;
+  width: 100%;
 
-    & svg {
-      fill: var(--color-text-600);
-    }
-
-    & h4 {
-      font-weight: 600;
-    }
+  @media screen and (min-width: 780px) {
+    display: none;
   }
 `;
 
@@ -69,7 +61,7 @@ const BottomTrack = styled.div`
   height: 1px;
   margin-top: 2.4rem;
   flex-shrink: 0;
-  background: rgba(var(--color-text-800-rgb), 0.12);
+  background: var(--color-text-50);
 `;
 
 const ProgressFill = styled.div`
@@ -78,107 +70,21 @@ const ProgressFill = styled.div`
   transform-origin: left center;
   transform: scaleX(0);
   background: var(--color-accent);
-  animation: ${progressFill} ${(props) => props.$durationMs}ms linear forwards;
-  animation-play-state: ${(props) => (props.$isPaused ? "paused" : "running")};
+  animation: ${progressFill} 0.8s linear forwards;
 `;
 
-function Service({
-  icon,
-  title,
-  paragraph,
-  serviceImage,
-  tools,
-  isOpen,
-  onClick,
-  cycleDurationMs,
-  useProgressAnimation,
-  onCycleComplete,
-  progressKey,
-  isPaused,
-}) {
-  const timeoutIdRef = useRef(null);
-  const startedAtRef = useRef(0);
-  const remainingMsRef = useRef(cycleDurationMs);
-
-  useEffect(() => {
-    if (useProgressAnimation) return undefined;
-
-    if (!isOpen) {
-      window.clearTimeout(timeoutIdRef.current);
-      timeoutIdRef.current = null;
-      remainingMsRef.current = cycleDurationMs;
-      startedAtRef.current = 0;
-      return undefined;
-    }
-
-    if (!isPaused) {
-      if (remainingMsRef.current <= 0) {
-        onCycleComplete?.();
-        return undefined;
-      }
-
-      startedAtRef.current = Date.now();
-      timeoutIdRef.current = window.setTimeout(() => {
-        remainingMsRef.current = cycleDurationMs;
-        onCycleComplete?.();
-      }, remainingMsRef.current);
-    } else if (timeoutIdRef.current) {
-      const elapsed = Date.now() - startedAtRef.current;
-      remainingMsRef.current = Math.max(0, remainingMsRef.current - elapsed);
-      window.clearTimeout(timeoutIdRef.current);
-      timeoutIdRef.current = null;
-    }
-
-    return () => {
-      window.clearTimeout(timeoutIdRef.current);
-      timeoutIdRef.current = null;
-    };
-  }, [
-    isOpen,
-    isPaused,
-    useProgressAnimation,
-    cycleDurationMs,
-    onCycleComplete,
-  ]);
-
-  useEffect(() => {
-    if (!isOpen) return;
-    remainingMsRef.current = cycleDurationMs;
-    startedAtRef.current = 0;
-  }, [progressKey, isOpen, cycleDurationMs]);
-
-  function handleProgressEnd(event) {
-    if (event.target !== event.currentTarget) return;
-    onCycleComplete?.();
-  }
-
+function Service({ title, serviceItem, tools, isOpen, onClick }) {
   return (
     <StyledService type="button" $isOpen={isOpen} onClick={onClick}>
       <ServiceContent>
-        <ServiceText>
-          <div>
-            {icon}
-            <h4>{title}</h4>
-          </div>
+        <ServiceHeader $isOpen={isOpen}>{title}</ServiceHeader>
 
-          {isOpen && <p>{paragraph}</p>}
-        </ServiceText>
-
-        {isOpen && <>{serviceImage}</>}
+        {isOpen && <ServiceItemContainer>{serviceItem}</ServiceItemContainer>}
 
         {isOpen && <>{tools}</>}
       </ServiceContent>
 
-      <BottomTrack aria-hidden>
-        {isOpen && useProgressAnimation && (
-          <ProgressFill
-            key={progressKey}
-            $durationMs={cycleDurationMs}
-            $isPaused={isPaused}
-            onAnimationEnd={handleProgressEnd}
-          />
-        )}
-      </BottomTrack>
+      <BottomTrack aria-hidden>{isOpen && <ProgressFill />}</BottomTrack>
     </StyledService>
   );
 }

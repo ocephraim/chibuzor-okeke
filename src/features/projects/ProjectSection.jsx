@@ -2,8 +2,9 @@ import styled from "styled-components";
 import Project from "./Project";
 import { SectionTitle } from "../../ui/Text";
 import { projects } from "./ProjectData";
+import { motion } from "motion/react";
 
-const StyledSection = styled.section`
+const StyledSection = styled(motion.section)`
   gap: 4.8rem;
 `;
 
@@ -25,12 +26,20 @@ const ProjectsContainer = styled.div`
 
 function ProjectSection() {
   return (
-    <StyledSection>
+    <StyledSection
+      intial={{ opacity: 0, y: 50 }}
+      whileInView={{ opcaity: 1, y: 0 }}
+      transition={{
+        duration: 0.5,
+        ease: "easeOut",
+      }}
+      viewport={{ once: false, amount: 0.2 }}
+    >
       <SectionTitle>./some work I have done</SectionTitle>
 
       <ProjectsContainer>
-        {projects.map((p) => (
-          <Project key={p.id} project={p} />
+        {projects.map((p, index) => (
+          <Project key={p.id} project={p} index={index} />
         ))}
       </ProjectsContainer>
     </StyledSection>

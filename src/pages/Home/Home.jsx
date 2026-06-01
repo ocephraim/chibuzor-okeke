@@ -6,6 +6,7 @@ import ProjectSection from "../../features/projects/ProjectSection";
 import ReviewSection from "../../features/reviews/ReviewSection";
 import ContactSection from "../../features/contactme/ContactSection";
 import Footer from "../../ui/Footer";
+import { Heading } from "../../ui/Text";
 
 const HeroSection = styled.section`
   height: 80lvh;
@@ -37,17 +38,6 @@ const HeroContent = styled.div`
   }
 `;
 
-const StyledHeader = styled.h1`
-  font-size: 4.8rem;
-  line-height: 110%;
-  letter-spacing: -2%;
-  font-weight: 900;
-
-  @media screen and (max-width: 657px) {
-    font-size: 2.4rem;
-  }
-`;
-
 const ImageContainer = styled.button`
   border: 4px solid var(--color-accent);
   border-radius: 150%;
@@ -74,10 +64,10 @@ function Home() {
               variation="round"
             />
           </ImageContainer>
-          <StyledHeader>
+          <Heading>
             Product Designer who codes, helping startups meet user needs and
             build delightful digital experiences.
-          </StyledHeader>
+          </Heading>
           <p>
             0→1 designer. From research & ideation, to polish & launch, and
             subsequent iterations.

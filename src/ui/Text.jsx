@@ -1,6 +1,26 @@
 import styled from "styled-components";
 
-const Heading = styled.h1``;
+const Heading = styled.h1`
+  font-size: 4.8rem;
+  line-height: 110%;
+  letter-spacing: -2%;
+  font-weight: 900;
+
+  @media screen and (max-width: 657px) {
+    font-size: 2.4rem;
+  }
+`;
+
+const Heading2 = styled.h2`
+  font-size: 3.2rem;
+  line-height: 110%;
+  letter-spacing: -2%;
+  font-weight: 900;
+
+  @media screen and (max-width: 657px) {
+    font-size: 1.8rem;
+  }
+`;
 
 const Paragraph = styled.p``;
 
@@ -15,4 +35,4 @@ const SectionTitle = styled.p`
   }
 `;
 
-export { Heading, Paragraph, SectionTitle };
+export { Heading, Heading2, Paragraph, SectionTitle };
