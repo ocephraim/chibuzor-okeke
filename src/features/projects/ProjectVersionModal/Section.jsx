@@ -42,9 +42,12 @@ const StyledSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
+  padding: 0 0 2.4rem;
+  border-bottom: 1px solid var(--color-text-50);
 
   @media screen and (max-width: 820px) {
     gap: 1.6rem;
+    padding: 0 0 1.6rem;
   }
 `;
 

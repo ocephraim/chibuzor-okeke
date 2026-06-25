@@ -33,7 +33,7 @@ const StyledPopup = styled(motion.div)`
 
   display: flex;
   flex-direction: column;
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
 
   @media screen and (max-width: 820px) {
@@ -44,17 +44,18 @@ const StyledPopup = styled(motion.div)`
 const ScrollContainer = styled.div`
   width: 100%;
   height: 100%;
-  overflow-y: auto;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
   padding: 2.4rem 2.4rem 0;
   scrollbar-width: none;
   position: relative;
+  border-radius: 2.4rem;
 
   @media screen and (max-width: 820px) {
     padding: 1.6rem 1.6rem 0;
-    gap: 1.6rem;
+    /* gap: 1.6rem; */
   }
 `;
 

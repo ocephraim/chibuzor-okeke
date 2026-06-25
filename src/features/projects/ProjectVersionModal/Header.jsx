@@ -13,7 +13,7 @@ const StyledHeader = styled.div`
   @media screen and (max-width: 657px) {
     flex-direction: column;
     gap: 1.6rem;
-    padding: 0 1.6rem;
+    padding: 0;
   }
 `;
 
