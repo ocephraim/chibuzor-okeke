@@ -25,9 +25,9 @@ const StyledPopup = styled(motion.div)`
   filter: drop-shadow(1px 1px 10px rgba(var(--color-text-800-rgb), 0.05))
     drop-shadow(7px 10px 45px rgba(var(--color-text-800-rgb), 0.1));
 
-  width: 95%;
+  width: 90%;
   max-width: 116rem;
-  height: 95%;
+  height: 90%;
   max-height: 78rem;
   margin: 0 auto;
 
