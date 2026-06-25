@@ -50,6 +50,7 @@ const ScrollContainer = styled.div`
   gap: 2.4rem;
   padding: 2.4rem 2.4rem 0;
   scrollbar-width: none;
+  position: relative;
 
   @media screen and (max-width: 820px) {
     padding: 1.6rem 1.6rem 0;
