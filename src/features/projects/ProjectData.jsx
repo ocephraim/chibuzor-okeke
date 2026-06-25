@@ -96,8 +96,8 @@ export const projects = [
           "Design an overall experience that prioritises efficiency for all stakeholders and helps users (Transport Admins, company staff, Vendors, Drivers) complete their designated tasks much faster.",
         ],
         outcome: [
-          "✔️ Improved operational efficiency",
-          "✔️ Reduced task completion time by 60%",
+          "✔️ Improved operational efficiency.",
+          "✔️ Reduced task completion time by 60%.",
         ],
         gallery: [
           {
