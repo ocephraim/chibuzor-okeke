@@ -77,7 +77,7 @@ const ProgressFill = styled.div`
   inset: 0;
   transform-origin: left center;
   transform: scaleX(0);
-  background: var(--color-accent);
+  background: var(--color-primary);
   animation: ${progressFill} ${(props) => props.$durationMs}ms linear forwards;
   animation-play-state: ${(props) => (props.$isPaused ? "paused" : "running")};
 `;

@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+import { motion } from "motion/react";
 import styled from "styled-components";
+
 import ProfileImage from "../../ui/ProfileImage";
 import SlidingImages from "./SlidingImages";
 import ServicesSection from "../../features/services/ServicesSection";
@@ -7,6 +10,7 @@ import ReviewSection from "../../features/reviews/ReviewSection";
 import ContactSection from "../../features/contactme/ContactSection";
 import Footer from "../../ui/Footer";
 import { Heading } from "../../ui/Text";
+import { RevealBlock, RevealWords } from "../../ui/RevealText";
 
 const HeroSection = styled.section`
   height: 80lvh;
@@ -38,14 +42,15 @@ const HeroContent = styled.div`
   }
 `;
 
-const ImageContainer = styled.button`
-  border: 4px solid var(--color-accent);
+const ImageContainer = styled(motion.button)`
+  border: 4px solid var(--color-primary);
   border-radius: 150%;
   height: fit-content;
   width: fit-content;
   display: flex;
   align-items: center;
   cursor: pointer;
+  outline: none;
 
   &:hover img {
     filter: none;
@@ -53,24 +58,38 @@ const ImageContainer = styled.button`
 `;
 
 function Home() {
+  const navigate = useNavigate();
+
   return (
     <>
       <HeroSection>
         <HeroContent>
-          <ImageContainer type="button">
+          <ImageContainer
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
+            type="button"
+            onClick={() => navigate("/about")}
+            layoutId="my_headshot_container"
+          >
             <ProfileImage
               src="src/assets/chibuzor.jpeg"
-              alt="chibuzor_photo"
+              alt="chibuzor_headshot"
               variation="round"
             />
           </ImageContainer>
           <Heading>
-            Product Designer who codes, helping startups meet user needs and
-            build delightful digital experiences.
+            <RevealWords
+              onMount={true}
+              text="Design Engineer crafting delightful digital experiences that drive business growth and meet the users' needs."
+            />
           </Heading>
+
           <p>
-            0→1 designer. From research & ideation, to polish & launch, and
-            subsequent iterations.
+            <RevealBlock onMount={true} delay={1.5}>
+              0→1 designer. From research & ideation, to polish & launch, and
+              subsequent iterations.
+            </RevealBlock>
           </p>
         </HeroContent>
       </HeroSection>

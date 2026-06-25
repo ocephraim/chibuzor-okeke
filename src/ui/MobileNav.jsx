@@ -117,7 +117,7 @@ function MobileNav() {
           <MenuControl>
             <StyledNavLink to="/">Chibuzor Okeke</StyledNavLink>
             <Button type="button" variation="tertiary" onClick={handleOpenNav}>
-              {isOpen ? `✗ Close` : `• Menu`}
+              {isOpen ? `✘ Close` : `• Menu`}
             </Button>
           </MenuControl>
 
@@ -128,7 +128,9 @@ function MobileNav() {
               transition={{ ease: "easeOut", duration: 0.5 }}
             >
               <NavList>
-                <StyledNavLink to="/">• About</StyledNavLink>
+                <StyledNavLink to="/about" onClick={handleOpenNav}>
+                  • About
+                </StyledNavLink>
                 <StyledNavLink to="/">• Work</StyledNavLink>
                 <StyledNavLink to="/">• Lets chat</StyledNavLink>
               </NavList>
@@ -140,7 +142,7 @@ function MobileNav() {
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ ease: "easeOut", duration: 0.5 }}
+            transition={{ ease: "easeOut", duration: 0.5, delay: 0.08 }}
             style={NavFooter}
           >
             <span>Based in Lagos, NG</span>

@@ -4,6 +4,7 @@ import Service from "./Service";
 import ServiceTools from "./ServiceTools";
 import { useState } from "react";
 import ServiceItems from "./ServiceItems";
+import { motion } from "motion/react";
 
 const StyledSection = styled.section`
   margin-top: -10rem;
@@ -40,7 +41,7 @@ const ServicesContent = styled.div`
   }
 `;
 
-const ServiceItemContainer = styled.div`
+const ServiceItemContainer = styled(motion.div)`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -89,7 +90,16 @@ function ServicesSection() {
           />
         </ServicesContent>
 
-        <ServiceItemContainer>
+        <ServiceItemContainer
+          initial={{ opacity: 0, y: 48 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.5,
+            ease: "easeOut",
+            delay: 0.08,
+          }}
+          viewport={{ once: false, amount: 0.05 }}
+        >
           <ServiceItems type={isActiveService} />
         </ServiceItemContainer>
       </StyledDiv>

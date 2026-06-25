@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import styled, { css } from "styled-components";
 
 const variations = {
@@ -10,7 +11,7 @@ const variations = {
   `,
 };
 
-const Img = styled.img`
+const Img = styled(motion.img)`
   height: 8rem;
   width: 8rem;
   object-fit: cover;
@@ -20,14 +21,14 @@ const Img = styled.img`
 
   ${(props) => variations[props.variation]}
 
-  @media screen and (max-width: 670px) {
+  @media screen and (max-width: 657px) {
     height: 6.4rem;
     width: 6.4rem;
   }
 `;
 
-function ProfileImage({ variation = "round", src = "", alt = "" }) {
-  return <Img as="img" src={src} alt={alt} variation={variation} />;
+function ProfileImage({ variation = "round", src = "", alt = "", ...props }) {
+  return <Img src={src} alt={alt} variation={variation} {...props} />;
 }
 
 export default ProfileImage;

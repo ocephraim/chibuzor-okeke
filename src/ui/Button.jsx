@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 const variations = {
   primary: css`
-    background-color: var(--color-accent);
+    background-color: var(--color-primary);
     color: #fff;
     padding: 1.2rem;
 
@@ -30,6 +30,21 @@ const variations = {
     background-color: transparent;
     color: var(--color-text-800);
     padding: 0;
+
+    & span {
+      /* background-color: var(--color-text-800); */
+      mix-blend-mode: difference;
+      color: var(--color-text-50);
+    }
+  `,
+
+  icon: css`
+    padding: 0.8rem;
+    border-radius: 150%;
+    color: var(--color-text-800);
+    background-color: var(--color-text-50);
+    font-size: 2.4rem;
+    line-height: 100%;
   `,
 };
 
@@ -40,23 +55,49 @@ const StyledButton = styled.button`
 
   border-radius: 1.2rem;
   border: none;
+  box-shadow: none;
 
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   font-weight: 600;
   color: var(--color-text-800);
 
   cursor: pointer;
-  transition: all 0.3s ease-out;
+  transition: all 0.4s ease-out;
 
   & svg {
     fill: currentColor;
   }
 
   ${(props) => variations[props.variation]}
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 `;
 
-function Button({ variation = "primary", icon, children, shortcuts, onClick }) {
+function Button({
+  variation = "primary",
+  icon,
+  children,
+  shortcuts,
+  onClick,
+  className,
+  disabled = false,
+  ...rest
+}) {
   return (
-    <StyledButton onClick={onClick} variation={variation}>
+    <StyledButton
+      className={className}
+      onClick={onClick}
+      variation={variation}
+      disabled={disabled}
+      {...rest}
+    >
       {icon} {children} {shortcuts}
     </StyledButton>
   );

@@ -1,9 +1,13 @@
+import { useEffect, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import styled from "styled-components";
+
+import { useCopyEmail } from "../../hooks/useCopyEmail";
 import { SectionTitle } from "../../ui/Text";
 import Button from "../../ui/Button";
 import Icons from "../../ui/Icons";
 import ButtonShortcuts from "../../ui/ButtonShortcuts";
-import { useCopyEmail } from "../../hooks/useCopyEmail";
+import toast from "react-hot-toast";
 
 const StyledSection = styled.section`
   background: var(--color-text-800);
@@ -50,7 +54,8 @@ const StyledForm = styled.form`
     border-radius: 1.2rem;
     border: none;
     min-height: 5rem;
-    padding: 0.8rem;
+    padding: 1.6rem;
+    /* color: #ffffff; */
   }
 `;
 
@@ -79,6 +84,41 @@ const GameDiv = styled.div`
 
 function ContactSection() {
   const { copied, handleCopyEmail } = useCopyEmail();
+  const form = useRef();
+
+  function handleSendEmail(e) {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("service_tj1qjmh", "template_evbl1mm", form.current, {
+        publicKey: "wJa26mck0SUUmDRO8",
+      })
+      .then(
+        () => {
+          toast.success("Email sent successfully! I'll reply shortly");
+          form.current.reset();
+        },
+        (error) => {
+          toast.error("Email failed to send. Please try again");
+          console.log("FAILED...", error.text);
+        },
+      );
+  }
+
+  useEffect(function () {
+    function handleKeyDown(e) {
+      const key = e.key.to.Lowercase();
+      const isSendShortcut = (e.metaKey || e.ctrlKey) && key === "Enter";
+
+      if (!isSendShortcut) return;
+      e.preventDefault();
+      handleSendEmail();
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   function onCopyEmail(e) {
     e.preventDefault();
@@ -89,22 +129,27 @@ function ContactSection() {
     <StyledSection>
       <StyledDiv>
         <SectionTitle>./Let us chat</SectionTitle>
-        <StyledForm>
+        <StyledForm ref={form} onSubmit={handleSendEmail}>
           <p>
             Building something exciting or need help brainstorming solutions to
-            an itching problem? Let’s chat
+            an bugging problem? Let’s chat
           </p>
 
           <FormBlock>
             <label htmlFor="message">Message</label>
-            <textarea name="message" id="message" rows="15"></textarea>
+            <textarea name="message" rows="10" required></textarea>
           </FormBlock>
 
           <FormBlock>
-            <label htmlFor="email">
-              Email address <span>(if you would like a reply)</span>
+            <label htmlFor="user_email">
+              Email address <span>(So I can reply)</span>
             </label>
-            <input type="email" name="email" id="email" />
+            <input type="email" name="user_email" id="email" required />
+          </FormBlock>
+
+          <FormBlock>
+            <label htmlFor="user_name">Your name</label>
+            <input type="text" name="user_name" required />
           </FormBlock>
 
           <ButtonContainer>
