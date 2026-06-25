@@ -5,7 +5,7 @@ import { useProjectVersionModal } from "./context";
 
 const Overlay = styled(motion.div)`
   width: 100%;
-  height: 100%;
+  height: 100dvh;
   position: fixed;
   inset: 0;
 
@@ -73,7 +73,6 @@ function Window({ children }) {
       onClick={onClose}
     >
       <StyledPopup
-        role="dialog"
         initial={{ opacity: 0, y: 30, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 30, scale: 0.95 }}

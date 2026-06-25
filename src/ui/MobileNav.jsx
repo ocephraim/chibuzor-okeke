@@ -8,7 +8,7 @@ import Button from "./Button";
 
 const StyledMobileNav = styled(motion.nav)`
   width: 100%;
-  height: ${(props) => (props.$isOpen ? "100vh" : "6rem")};
+  height: ${(props) => (props.$isOpen ? "100dvh" : "6rem")};
   margin: 0 auto;
   padding: 0 2rem;
 

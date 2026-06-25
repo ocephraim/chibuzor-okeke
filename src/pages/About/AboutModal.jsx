@@ -10,7 +10,7 @@ import AboutGallery from "./AboutGallery";
 
 const Overlay = styled(motion.div)`
   width: 100%;
-  height: 100%;
+  height: 100dvh;
   position: fixed;
   inset: 0;
 
