@@ -8,7 +8,7 @@ import ButtonShortcuts from "../../../ui/ButtonShortcuts";
 import { useProjectVersionModal } from "./context";
 
 const ButtonContainer = styled(motion.div)`
-  position: fixed;
+  position: absolute;
   bottom: 0;
   right: 0;
   z-index: 10;

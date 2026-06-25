@@ -33,7 +33,7 @@ const StyledPopup = styled(motion.div)`
 
   display: flex;
   flex-direction: column;
-  /* position: relative; */
+  position: relative;
   overflow: hidden;
 
   @media screen and (max-width: 820px) {
@@ -84,7 +84,7 @@ function Window({ children }) {
             id="scroll-indicator"
             style={{
               scaleX: scrollYProgress,
-              position: "fixed",
+              position: "sticky",
               top: 0,
               left: 0,
               right: 0,

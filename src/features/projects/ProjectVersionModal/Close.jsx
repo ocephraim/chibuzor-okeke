@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { motion } from "motion/react";
 
 const ButtonContainer = styled(motion.div)`
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   z-index: 10;

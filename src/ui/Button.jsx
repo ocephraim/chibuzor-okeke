@@ -29,7 +29,7 @@ const variations = {
   tertiary: css`
     background-color: transparent;
     color: var(--color-text-800);
-    padding: 0;
+    padding: 1.2rem;
 
     & span {
       /* background-color: var(--color-text-800); */

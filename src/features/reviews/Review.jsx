@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import ProfileImage from "../../ui/ProfileImage";
 import Button from "../../ui/Button";
 import Icons from "../../ui/Icons";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 
 const expandStyles = {
   "top-left": css`
@@ -73,11 +73,6 @@ const StyledReview = styled(motion.div)`
   overflow: hidden;
   cursor: pointer;
 
-  transition:
-    width 0.5s cubic-bezier(0.34, 1.27, 0.64, 1),
-    height 0.5s cubic-bezier(0.34, 1.27, 0.64, 1),
-    z-index 0.5s cubic-bezier(0.34, 1.27, 0.64, 1) 0.1s;
-
   ${({ $isHighlighted, $expandAnchor }) =>
     $isHighlighted
       ? expandStyles[$expandAnchor]
@@ -99,10 +94,15 @@ const StyledReview = styled(motion.div)`
     ${({ $isHighlighted }) =>
       $isHighlighted &&
       `
-      width: 100%;
-      height: 100%;
+      width: 120%;
+      height: 120%;
     `}
   }
+
+  transition:
+    width 0.5s cubic-bezier(0.34, 1.27, 0.64, 1),
+    height 0.5s cubic-bezier(0.34, 1.27, 0.64, 1),
+    z-index 0.5s cubic-bezier(0.34, 1.27, 0.64, 1) 0.1s;
 
   /* transition: all 7s ease-out; */
 `;
