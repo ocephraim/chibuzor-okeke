@@ -3,8 +3,9 @@ import Button from "../../../ui/Button";
 import ButtonShortcuts from "../../../ui/ButtonShortcuts";
 import { useProjectVersionModal } from "./context";
 import { useEffect } from "react";
+import { motion } from "motion/react";
 
-const ButtonContainer = styled.div`
+const ButtonContainer = styled(motion.div)`
   position: fixed;
   top: 0;
   right: 0;
@@ -61,7 +62,12 @@ function Close() {
   );
 
   return (
-    <ButtonContainer>
+    <ButtonContainer
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4 }}
+    >
       <StyledButton
         type="button"
         variation="tertiary"

@@ -6,7 +6,7 @@ import ButtonShortcuts from "../../../ui/ButtonShortcuts";
 import { useProjectVersionModal } from "./context";
 import { motion, AnimatePresence } from "motion/react";
 
-const ButtonContainer = styled.div`
+const ButtonContainer = styled(motion.div)`
   position: fixed;
   bottom: 0;
   right: 0;
@@ -75,7 +75,12 @@ function Links() {
   }
 
   return (
-    <ButtonContainer>
+    <ButtonContainer
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
       <CaseButton
         onMouseEnter={handleShowTooltip}
         onMouseLeave={handleHideTooltip}
