@@ -29,6 +29,8 @@ const ButtonContainer = styled(motion.div)`
 `;
 
 const StyledButton = styled(Button)`
+  padding: 0;
+
   & span {
     border: 1px solid var(--color-text-200);
     background-color: transparent;

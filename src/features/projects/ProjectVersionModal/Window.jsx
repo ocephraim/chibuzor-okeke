@@ -50,7 +50,7 @@ const ScrollContainer = styled.div`
   gap: 2.4rem;
   padding: 2.4rem 2.4rem 0;
   scrollbar-width: none;
-  position: relative;
+  /* position: relative; */
   border-radius: 2.4rem;
 
   @media screen and (max-width: 820px) {
@@ -84,7 +84,7 @@ function Window({ children }) {
             id="scroll-indicator"
             style={{
               scaleX: scrollYProgress,
-              position: "sticky",
+              position: "absolute",
               top: 0,
               left: 0,
               right: 0,
