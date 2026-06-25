@@ -41,7 +41,6 @@ const Nav = styled.nav`
   align-items: center;
 
   transition:
-    background 0.3s ease-out,
     flex 0.3s ease-out,
     position 0.3s ease-out;
 
@@ -87,7 +86,8 @@ function MainNav() {
   useEffect(() => {
     function handleScroll() {
       const currentMaxScroll =
-        document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
       setIsScrolled(window.scrollY > 30);
       if (window.scrollY > currentMaxScroll - 120) setIsScrolled(false);
     }

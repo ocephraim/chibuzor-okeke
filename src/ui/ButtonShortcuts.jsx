@@ -5,8 +5,11 @@ const Key = styled.span`
   padding: 0.3rem 0.5rem;
 
   border-radius: 0.4rem;
-  background-color: var(--color-accent);
+  background-color: var(--color-primary);
   color: #fff;
+
+  /* filter: drop-shadow(0 2px 1px inherit); */
+  box-shadow: inset 0 -2px 0px rgba(var(--color-primary-rgb), 0.2);
 `;
 
 const KeyGroup = styled.div`
@@ -41,10 +44,40 @@ function SendShortcuts() {
   );
 }
 
+function CloseShortcuts() {
+  return (
+    <KeyGroup>
+      <Key>Esc</Key>
+    </KeyGroup>
+  );
+}
+
+function CaseStudyShortcuts() {
+  return (
+    <KeyGroup>
+      <Key>⌘</Key>
+      <Key>⇧</Key>
+      <Key>F</Key>
+    </KeyGroup>
+  );
+}
+
+function LiveLinkShortcuts() {
+  return (
+    <KeyGroup>
+      <Key>⌘</Key>
+      <Key>⇧</Key>
+      <Key>L</Key>
+    </KeyGroup>
+  );
+}
+
 function ButtonShortcuts({ type }) {
   if (type === "copymail") return <CopyMailShortcuts />;
-
   if (type === "send") return <SendShortcuts />;
+  if (type === "close") return <CloseShortcuts />;
+  if (type === "casestudy") return <CaseStudyShortcuts />;
+  if (type === "livelink") return <LiveLinkShortcuts />;
 
   return null;
 }

@@ -13,7 +13,7 @@ const StyledProject = styled(motion.div)`
   gap: 2.4rem;
 
   overflow: hidden;
-  grid-column: ${(props) => (props.$span ? `span ${props.$span}` : "")};
+  /* grid-column: ${(props) => (props.$span ? `span ${props.$span}` : "")}; */
   /* grid-column: span 2; */
 
   @media screen and (max-width: 657px) {
@@ -42,6 +42,7 @@ const ProjectDetails = styled.div`
   & p {
     color: var(--color-text-400);
     line-height: 145%;
+    font-size: 1.2rem;
   }
 
   @media screen and (max-width: 657px) {
@@ -121,38 +122,84 @@ const ProjectVersions = styled.div`
   }
 
   & button {
-    flex: 0 0 auto;
+    flex: 1 0 auto;
     width: clamp(26rem, 78vw, 40rem);
-    max-width: 400px;
+    max-width: ${(props) => (props.$numOfVersions > 1 ? "95%" : "100%")};
     height: 100%;
+    position: relative;
+    overflow: hidden;
+    outline: none;
 
     scroll-snap-align: start;
 
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
     border: 2px solid white;
     border-radius: 1.2rem;
     cursor: pointer;
     padding: 0;
     appearance: none;
+    background-color: transparent;
 
-    @media screen and (max-width: 657px) {
-      width: 100%;
-      max-width: 95%;
-    }
+    transition: all 0.4s ease-out;
   }
 
-  /* & button:focus-visible,
-  button:hover {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-  } */
+  & button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      to bottom,
+      rgba(var(--color-text-800-rgb), 0.5) 40%,
+      rgba(var(--color-text-800-rgb), 0.5) 100%
+    );
+    opacity: 0;
+    z-index: 1;
+
+    transition: opacity 0.4s ease-out;
+  }
+
+  & button:focus-visible img,
+  button:hover img {
+    scale: 1.03;
+  }
+
+  & button:focus-visible::after,
+  button:hover::after {
+    opacity: 1;
+  }
+
+  & button:hover span,
+  button:focus-visible span {
+    transform: translateY(0);
+    opacity: 1;
+  }
 `;
 
-function Project({ project, index = 0 }) {
-  const { companyName, timeline, servicesRendered, summary, versions, span } =
-    project;
+const StyledLabel = styled.span`
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text-50);
+  opacity: 0;
+  position: absolute;
+  left: 1.6rem;
+  bottom: 1.2rem;
+  z-index: 2;
+
+  transform: translateY(50px);
+  transition: all 0.4s ease-out;
+  transition-delay: 0.08s;
+`;
+
+function Project({ project, index = 0, onVersionClick }) {
+  const {
+    companyName,
+    timeline,
+    servicesRendered,
+    summary,
+    versions,
+    industry,
+  } = project;
+  const numOfVersions = versions.length;
 
   return (
     <StyledProject
@@ -163,8 +210,7 @@ function Project({ project, index = 0 }) {
         ease: "easeOut",
         delay: index * 0.08,
       }}
-      viewport={{ once: false, amount: 0.2 }}
-      $span={span}
+      viewport={{ once: false, amount: 0.05 }}
     >
       <ProjectInfo>
         <ProjectDetails>
@@ -174,34 +220,53 @@ function Project({ project, index = 0 }) {
           </ClientDetails>
 
           <p>{summary}</p>
-        </ProjectDetails>
 
-        <ProjectServices>
-          {servicesRendered.map((service, i) => (
-            <p key={i}>{service}</p>
-          ))}
-        </ProjectServices>
+          <ProjectServices>
+            {servicesRendered.map((service, i) => (
+              <p key={i}>{service}</p>
+            ))}
+          </ProjectServices>
+        </ProjectDetails>
       </ProjectInfo>
 
       <ProjectVersions
         role="region"
         aria-roledescription="carousel"
         aria-label="Project version previews"
+        $numOfVersions={numOfVersions}
       >
         {versions.map((v) => (
           <button
             key={v.id}
             type="button"
             aria-label={`${v.label} preview`}
-            style={{
-              background: v.image ? `url(${v.image})` : "var(--color-accent2)",
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-            }}
-            onClick={() =>
-              v.href && window.open(v.href, "_blank", "noopener,noreferrer")
+            onClick={() => onVersionClick(v)}
+            style={
+              {
+                // backgroundColor: "var(--color-accent)",
+              }
             }
-          />
+          >
+            {v.heroImage && (
+              <motion.img
+                src={v.heroImage}
+                alt={v.label}
+                layoutId={`hero-img-${v.id}`}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center",
+                  position: "absolute",
+                  inset: 0,
+                  zIndex: 0,
+                  transition: "all 0.4s ease-out",
+                }}
+              />
+            )}
+
+            <StyledLabel style={{ zIndex: 2 }}>{v.label}</StyledLabel>
+          </button>
         ))}
       </ProjectVersions>
     </StyledProject>

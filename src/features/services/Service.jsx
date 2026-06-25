@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { Heading2 } from "../../ui/Text";
+import { motion } from "motion/react";
 
 const progressFill = keyframes`
   from {
@@ -10,7 +11,7 @@ const progressFill = keyframes`
   }
 `;
 
-const StyledService = styled.button`
+const StyledService = styled(motion.button)`
   padding: 2.4rem 0 0;
   border: none;
   background: transparent;
@@ -47,7 +48,7 @@ const ServiceHeader = styled(Heading2)`
 const ServiceItemContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 1.2rem;
+  grid-gap: 0.8rem;
   width: 100%;
 
   @media screen and (min-width: 780px) {
@@ -69,13 +70,25 @@ const ProgressFill = styled.div`
   inset: 0;
   transform-origin: left center;
   transform: scaleX(0);
-  background: var(--color-accent);
+  background: var(--color-primary);
   animation: ${progressFill} 0.8s linear forwards;
 `;
 
 function Service({ title, serviceItem, tools, isOpen, onClick }) {
   return (
-    <StyledService type="button" $isOpen={isOpen} onClick={onClick}>
+    <StyledService
+      initial={{ opacity: 0, y: 48 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.5,
+        ease: "easeOut",
+        delay: 0.08,
+      }}
+      viewport={{ once: false, amount: 0.05 }}
+      type="button"
+      $isOpen={isOpen}
+      onClick={onClick}
+    >
       <ServiceContent>
         <ServiceHeader $isOpen={isOpen}>{title}</ServiceHeader>
 

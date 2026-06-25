@@ -78,7 +78,7 @@ const SERVICE_ITEMS = {
 const fadeUp = keyframes`
   from {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(48px);
   }
 
   to {
@@ -97,13 +97,17 @@ const ServiceItem = styled.div`
   animation-delay: ${(props) => props.$delay}ms;
   opacity: 0;
 
-  & h4 {
+  & h3 {
     font-size: 1.4rem;
     font-weight: 600;
+
+    @media screen and (max-width: 657px) {
+      font-size: 1.3rem;
+    }
   }
 
   & p {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: var(--color-text-400);
     line-height: 145%;
   }
@@ -116,7 +120,7 @@ function ServiceItems({ type }) {
     <>
       {Item?.map((item, index) => (
         <ServiceItem key={item.title} $delay={index * 60}>
-          <h4>{item.title}</h4>
+          <h3>{item.title}</h3>
           <p>{item.body}</p>
         </ServiceItem>
       ))}

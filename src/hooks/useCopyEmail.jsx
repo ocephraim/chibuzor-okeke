@@ -2,9 +2,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import Button from "../ui/Button";
 
-const EMAIL = "ocephraim@gmail.com";
-
 export function useCopyEmail() {
+  const EMAIL = "ocephraim@gmail.com";
   const [copied, setCopied] = useState(false);
   const resetTimerRef = useRef(null);
 
@@ -57,6 +56,7 @@ export function useCopyEmail() {
       resetTimerRef.current = window.setTimeout(() => setCopied(false), 1200);
     } catch (error) {
       setCopied(false);
+      toast.error("Failed to copy email");
       console.error("Failed to copy email:", error);
     }
   }, [copyToClipboard]);
@@ -80,5 +80,5 @@ export function useCopyEmail() {
     };
   }, [handleCopyEmail]);
 
-  return { copied, handleCopyEmail };
+  return { copied, handleCopyEmail, EMAIL };
 }
