@@ -1,10 +1,11 @@
 import { useRef, useState } from "react";
-import styled, { css } from "styled-components";
+import { motion, AnimatePresence } from "motion/react";
+import styled from "styled-components";
+
 import Button from "../../../ui/Button";
 import Icons from "../../../ui/Icons";
 import ButtonShortcuts from "../../../ui/ButtonShortcuts";
 import { useProjectVersionModal } from "./context";
-import { motion, AnimatePresence } from "motion/react";
 
 const ButtonContainer = styled(motion.div)`
   position: fixed;
