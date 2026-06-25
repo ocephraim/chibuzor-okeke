@@ -21,7 +21,7 @@ const Overlay = styled(motion.div)`
 
 const StyledPopup = styled(motion.div)`
   border-radius: 2.4rem;
-  background-color: #fff;
+  background-color: #ffffff;
   filter: drop-shadow(1px 1px 10px rgba(var(--color-text-800-rgb), 0.05))
     drop-shadow(7px 10px 45px rgba(var(--color-text-800-rgb), 0.1));
 
@@ -45,12 +45,12 @@ const ScrollContainer = styled.div`
   width: 100%;
   height: 100%;
   overflow-y: scroll;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
   padding: 2.4rem 2.4rem 0;
   scrollbar-width: none;
-  /* position: relative; */
   border-radius: 2.4rem;
 
   @media screen and (max-width: 820px) {
