@@ -73,7 +73,7 @@ function Home() {
             layoutId="my_headshot_container"
           >
             <ProfileImage
-              src="src/assets/chibuzor.jpeg"
+              src="/chibuzor.jpeg"
               alt="chibuzor_headshot"
               variation="round"
             />

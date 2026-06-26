@@ -2,69 +2,69 @@ import styled from "styled-components";
 
 const designTools = {
   figma: {
-    img: "src/assets/tools/design/figma.png",
+    img: "/tools/design/figma.png",
     alt: "Figma",
   },
   rive: {
-    img: "src/assets/tools/design/rive.png",
+    img: "/tools/design/rive.png",
     alt: "Rive",
   },
   jitter: {
-    img: "src/assets/tools/design/jitter.png",
+    img: "/tools/design/jitter.png",
     alt: "Jitter",
   },
   cosmos: {
-    img: "src/assets/tools/design/cosmos.png",
+    img: "/tools/design/cosmos.png",
     alt: "Cosmos",
   },
   claude: {
-    img: "src/assets/tools/design/claude.png",
+    img: "/tools/design/claude.png",
     alt: "Claude.ai",
   },
 };
 
 const devTools = {
   reactjs: {
-    img: "src/assets/tools/development/reactjs.png",
+    img: "/tools/development/reactjs.png",
     alt: "reactjs",
   },
   webflow: {
-    img: "src/assets/tools/development/webflow.png",
+    img: "/tools/development/webflow.png",
     alt: "webflow",
   },
   tailwindcss: {
-    img: "src/assets/tools/development/tailwindcss.png",
+    img: "/tools/development/tailwindcss.png",
     alt: "tailwindcss",
   },
   framer: {
-    img: "src/assets/tools/development/framer.png",
+    img: "/tools/development/framer.png",
     alt: "framer",
   },
   cursor: {
-    img: "src/assets/tools/development/cursor.png",
+    img: "/tools/development/cursor.png",
     alt: "cursor",
   },
 };
 
 const strategyTools = {
   miro: {
-    img: "src/assets/tools/strategy/miro.png",
+    img: "/tools/strategy/miro.png",
     alt: "miro",
   },
   notion: {
-    img: "src/assets/tools/strategy/notion.png",
+    img: "/tools/strategy/notion.png",
     alt: "notion",
   },
   analytics: {
-    img: "src/assets/tools/strategy/analytics.png",
+    img: "/tools/strategy/analytics.png",
     alt: "analytics",
   },
   linear: {
-    img: "src/assets/tools/strategy/linear.png",
+    img: "/tools/strategy/linear.png",
     alt: "linear",
   },
   hotjar: {
-    img: "src/assets/tools/strategy/hotjar.png",
+    img: "/tools/strategy/hotjar.png",
     alt: "hotjar",
   },
 };

@@ -11,12 +11,12 @@ const ResumeBlock = styled(motion.a)`
   border: 2px solid var(--color-text-800);
   border-radius: 2.4rem;
   box-shadow: 3px -4px 20px rgba(var(--color-text-800-rgb), 0.15);
-  background-image: url(src/assets/cv_bg.png);
+  background-image: url(/cv_bg.png);
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
   outline: none;
-  /* cursor: pointer; */
+  cursor: pointer;
 
   @media screen and (max-width: 820px) {
     width: 24rem;

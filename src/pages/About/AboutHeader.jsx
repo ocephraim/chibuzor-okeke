@@ -55,7 +55,7 @@ function AboutHeader({ onClose }) {
         transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
       >
         <ProfileImage
-          src="src/assets/chibuzor.jpeg"
+          src="/chibuzor.jpeg"
           alt="chibuzor_headshot"
           variation="round"
         />
