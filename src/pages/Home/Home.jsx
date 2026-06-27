@@ -18,7 +18,7 @@ const HeroSection = styled.section`
   align-items: flex-start;
 
   @media screen and (max-width: 657px) {
-    height: 75lvh;
+    height: 68dvh;
   }
 `;
 

@@ -94,8 +94,9 @@ const StyledReview = styled(motion.div)`
     ${({ $isHighlighted }) =>
       $isHighlighted &&
       `
-      width: 120%;
-      height: 120%;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
     `}
   }
 

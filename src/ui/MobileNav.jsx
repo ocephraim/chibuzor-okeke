@@ -54,12 +54,17 @@ const MenuControl = styled.div`
 `;
 
 const StyledNavLink = styled(NavLink)`
+  font-size: 1.4rem;
+
   &:link,
   &:visited {
     font-weight: 600;
     text-decoration: none;
     color: var(--color-text-800);
   }
+`;
+const StyledButton = styled(Button)`
+  font-size: 1.4rem;
 `;
 
 const NavList = styled.ul`
@@ -116,9 +121,13 @@ function MobileNav() {
         <MenuLinks>
           <MenuControl>
             <StyledNavLink to="/">Chibuzor Okeke</StyledNavLink>
-            <Button type="button" variation="tertiary" onClick={handleOpenNav}>
+            <StyledButton
+              type="button"
+              variation="tertiary"
+              onClick={handleOpenNav}
+            >
               {isOpen ? `✘ Close` : `• Menu`}
-            </Button>
+            </StyledButton>
           </MenuControl>
 
           {isOpen && (

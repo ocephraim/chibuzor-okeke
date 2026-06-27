@@ -28,7 +28,7 @@ const StyledPopup = styled(motion.div)`
   width: 90%;
   max-width: 116rem;
   height: 90%;
-  max-height: 78rem;
+  /* max-height: 78rem; */
   margin: 0 auto;
 
   display: flex;

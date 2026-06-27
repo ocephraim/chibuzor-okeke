@@ -33,8 +33,13 @@ const StyledTitleBlock = styled.div`
 `;
 
 const StyledTitle = styled(SectionTitle)`
+  font-size: 1.4rem;
   font-family: "PT Serif", serif;
   text-transform: capitalize;
+
+  @media screen and (max-width: 657) {
+    font-size: 1.4rem;
+  }
 `;
 
 const StyledHeading = styled(Heading)`

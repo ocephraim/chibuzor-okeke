@@ -36,6 +36,26 @@ const variations = {
       }
     }
   `,
+
+  video: css`
+    width: 100%;
+    max-height: 60rem;
+    background: #000;
+    border-radius: 2.4rem;
+    display: flex;
+    justify-content: center;
+    padding: 0 1.6rem;
+
+    & video {
+      max-width: 95%;
+      height: 100%;
+    }
+
+    @media screen and (max-width: 657px) {
+      height: 40rem;
+      padding: 0;
+    }
+  `,
 };
 
 const StyledSection = styled.div`
@@ -43,11 +63,13 @@ const StyledSection = styled.div`
   flex-direction: column;
   gap: 2.4rem;
   padding: 0 0 2.4rem;
+  margin-top: ${(props) => (props.$platform === "video" ? "-2.4rem" : "0")};
   border-bottom: 1px solid var(--color-text-50);
 
   @media screen and (max-width: 820px) {
     gap: 1.6rem;
     padding: 0 0 1.6rem;
+    margin-top: ${(props) => (props.$platform === "video" ? "-1.6rem" : "0")};
   }
 `;
 
@@ -86,17 +108,23 @@ function Section() {
   return (
     <>
       {gallery?.map((g, i) => (
-        <StyledSection key={i}>
+        <StyledSection key={i} $platform={g.platform}>
           <StyledTitle>{g.title}</StyledTitle>
           <SectionImages variation={g.platform}>
-            {g.images?.map((image, imgIndex) => (
-              <img
-                src={image.imageSrc}
-                key={imgIndex}
-                alt={image.caption}
-                title={image.caption}
-              />
-            ))}
+            {g.images?.map((image, imgIndex) =>
+              g.platform === "video" ? (
+                <video key={image.videoSrc} controls>
+                  <source src={image.videoSrc} type="video/mp4" />
+                </video>
+              ) : (
+                <img
+                  src={image.imageSrc}
+                  key={imgIndex}
+                  alt={image.caption}
+                  title={image.caption}
+                />
+              ),
+            )}
           </SectionImages>
         </StyledSection>
       ))}
