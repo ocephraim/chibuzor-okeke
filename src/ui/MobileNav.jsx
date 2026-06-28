@@ -5,6 +5,8 @@ import styled from "styled-components";
 
 import { useBrowserTime } from "../hooks/useBrowserTime";
 import Button from "./Button";
+import { useCopyEmail } from "../hooks/useCopyEmail";
+import { RevealWords } from "./RevealText";
 
 const StyledMobileNav = styled(motion.nav)`
   width: 100%;
@@ -80,13 +82,43 @@ const NavList = styled.ul`
   }
 `;
 
-const NavFooter = {
+const MetaInfo = {
   width: "100%",
-  height: "6rem",
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
 };
+
+const NavFooter = styled.footer`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+`;
+
+const EmailBlock = styled(motion.div)`
+  width: 100%;
+  position: relative;
+  background-color: transparent;
+  border: none;
+  padding: 0 0 2rem;
+
+  & h4 {
+    font-family:
+      "Inter",
+      -apple-system,
+      BlinkMacSystemFont,
+      sans-serif;
+    font-size: 4.5rem;
+    width: 100%;
+    overflow-wrap: break-word;
+    letter-spacing: -6%;
+    font-weight: 900;
+    line-height: 100%;
+    text-decoration: underline;
+    color: var(--color-text-800);
+  }
+`;
 
 function NavClock() {
   const time = useBrowserTime();
@@ -100,6 +132,7 @@ function NavClock() {
 
 function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
+  const { EMAIL } = useCopyEmail();
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -134,6 +167,7 @@ function MobileNav() {
             <motion.div
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 50, opacity: 0 }}
               transition={{ ease: "easeOut", duration: 0.5 }}
             >
               <NavList>
@@ -148,15 +182,38 @@ function MobileNav() {
         </MenuLinks>
 
         {isOpen && (
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ ease: "easeOut", duration: 0.5, delay: 0.08 }}
-            style={NavFooter}
-          >
-            <span>Based in Lagos, NG</span>
-            <NavClock />
-          </motion.div>
+          <NavFooter>
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 50, opacity: 0 }}
+              transition={{ ease: "easeOut", duration: 0.5, delay: 0.2 }}
+              style={MetaInfo}
+            >
+              <span>Based in Lagos, NG</span>
+              <NavClock />
+            </motion.div>
+
+            <EmailBlock as="a" href={`mailto:${EMAIL}`}>
+              <motion.h4
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: 50, opacity: 0 }}
+                transition={{ ease: "easeOut", duration: 0.5, delay: 0.4 }}
+              >
+                {/* <RevealWords
+                  text={`${EMAIL} →`}
+                  style={{
+                    textDecoration: "underline",
+                    width: "100%",
+                    lineHeight: "110%",
+                  }}
+                  delay={0.4}
+                /> */}
+                {EMAIL} →
+              </motion.h4>
+            </EmailBlock>
+          </NavFooter>
         )}
       </StyledMobileNav>
     </>

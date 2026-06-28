@@ -252,21 +252,160 @@ export const projects = [
         label: "Business Ops Management App",
         heroImage:
           "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1780905985/unque_business_svwvx3.png",
-        versionTitle: "",
-        versionContributors: "",
-        yearCompleted: "",
-        versionServices: "",
-        context: ["", "", ""],
-        goal: [""],
-        outcome: ["", ""],
+        versionTitle: "Helping Salon Owners 2x Their Revenue",
+        versionContributors:
+          "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782640789/contributors_rj4gbv.png",
+        yearCompleted: "2024/25",
+        versionServices:
+          "User Research, Product Design, Design Systems, Design Leadership, Product Strategy",
+        context: [
+          "I joined Unque.me (based in Ahmedabad, India) as the first tech hire. We set out to help Salon Owners, mostly middle-aged semi-literate men, improve their business.",
+          "Salon owners have little to no business during off-peak hours and too many people during peak hours. They would like more efficiency in their operations and want to make more money.",
+        ],
+        goal: [
+          "Design an experience that help salon owners capture revenue lost outside peak hours and maximize their clientele.",
+        ],
+        outcome: [
+          "✔️ A product experience designed to improve business efficiency.",
+          "✔️ Laid the foundation for expansion into other business sectors",
+        ],
         gallery: [
           {
-            title: "",
-            platform: "", //mobile, web
+            title: "./Managing walk-in bookings",
+            platform: "mobile", //mobile, web
             images: [
               {
-                imageSrc: "",
-                caption: "",
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641287/welcome_lx26jh.png",
+                caption: "welcome",
+              },
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641281/discount_oxm6dv.png",
+                caption: "discount",
+              },
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641282/home_-_new_booking_isiuqj.png",
+                caption: "home - new booking",
+              },
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641282/home_-_idle_kcaozl.png",
+                caption: "home - idle",
+              },
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641283/start_session_xd8cm1.png",
+                caption: "start session",
+              },
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641282/home_-_ongoing_session_mjuqmv.png",
+                caption: "home - ongoing session",
+              },
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641281/end_session_uqaafh.png",
+                caption: "end session",
+              },
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641284/waiting_for_payment_b4tmbi.png",
+                caption: "waiting for payment",
+              },
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641286/payment_received_bwolfg.png",
+                caption: "payment received",
+              },
+            ],
+          },
+          {
+            title: "./Managing online bookings",
+            platform: "mobile", //mobile, web
+            images: [
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641406/not_eligibe_xez4yh.png",
+                caption: "not eligible",
+              },
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641405/home_-_congrats_az6rlo.png",
+                caption: "home - congrats",
+              },
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641409/upcoming_session_uoacrv.png",
+                caption: "upcoming session",
+              },
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641403/10mins_late_cw7kox.png",
+                caption: "10 mins late",
+              },
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641404/customer_is_here_mjnor9.png",
+                caption: "customer is here",
+              },
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641408/start_session_guqedr.png",
+                caption: "start session",
+              },
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641407/ongoing_session_x5npvu.png",
+                caption: "ongoing session",
+              },
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641405/end_session_simrkm.png",
+                caption: "end session",
+              },
+            ],
+          },
+          {
+            title: "./Booking calendar",
+            platform: "mobile", //mobile, web
+            images: [
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641428/daily_sbbjsk.png",
+                caption: "daily",
+              },
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641430/weekly_hnphuz.png",
+                caption: "weekly",
+              },
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641429/monthly_kutzho.png",
+                caption: "monthly",
+              },
+            ],
+          },
+          {
+            title: "./Earnings & Payout",
+            platform: "mobile", //mobile, web
+            images: [
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641498/earnings_rlg0mr.png",
+                caption: "earnings",
+              },
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641497/customer_history_r0mppe.png",
+                caption: "customer history",
+              },
+              {
+                imageSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782641499/payout_history_ricvqu.png",
+                caption: "payout history",
               },
             ],
           },
@@ -613,107 +752,130 @@ export const projects = [
     servicesRendered: ["design", "engineering", "strategy"],
     summary:
       "Building an ecosystem to help innovations and elite Product teams build products faster.",
-    industry: "Saas",
+    industry: "Saas, AI",
     versions: [
       {
         id: "grupa_ai",
-        label: "Mobile",
-        heroImage: "",
-        versionTitle: "",
-        versionContributors: "",
-        yearCompleted: "",
-        versionServices: "",
-        context: ["", "", ""],
-        goal: [""],
-        outcome: ["", ""],
+        label: "Grupa's First AI Concept",
+        heroImage:
+          "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782644167/grupa_ai_lmpcvp.png",
+        versionTitle: "Exploring A New Tech Frontier",
+        versionContributors:
+          "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782646323/contributors_hzi34q.png",
+        yearCompleted: "2023",
+        versionServices:
+          "Product Research, Product Design, Motion Design, Product Strategy",
+        context: [
+          "OpenAI’s announcement of their first publicly available AI chat bot ChatGPT in Dec 2022 change the world of software as we knew it.",
+          "The team at Grupa had spent the previous 4 years building tools to help startup founders find and hire world class experts to build products.  The announcement triggered a series of meetings at Grupa to discuss the new possibilities and future of collaboration, work and building great products/companies.",
+        ],
+        goal: [
+          "Design an a concept that visualizes the future of work operating system. Provide solutions showing how Grupa would take advantage of this paradigm shift and lead the category?",
+        ],
+        outcome: [
+          "✔️ Concept demo of Grupa autobuild",
+          "✘ The idea was too early and ahead of available models at the time.",
+        ],
         gallery: [
           {
-            title: "",
-            platform: "", //mobile, web
+            title: "./Autobuild concept demo",
+            platform: "video", //mobile, web
             images: [
               {
-                imageSrc: "",
-                caption: "",
+                videoSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/video/upload/v1782648387/autobuild_product_demo_kktqsu.mp4",
+                caption: "autobuild concept demo",
+              },
+            ],
+          },
+          {
+            title: "./Marketing video",
+            platform: "video", //mobile, web
+            images: [
+              {
+                videoSrc:
+                  "https://res.cloudinary.com/chibuzor-okeke-portfolio/video/upload/v1782648458/marketing_video_tmlwst.mp4",
+                caption: "autobuild marketing video",
               },
             ],
           },
         ],
         caseStudy: "",
-        liveUrl: "",
+        liveUrl: "https://grupa.ai",
       },
-      {
-        id: "grupa_web_app",
-        label: "Web",
-        heroImage: "",
-        versionTitle: "",
-        versionContributors: "",
-        yearCompleted: "",
-        versionServices: "",
-        context: ["", "", ""],
-        goal: [""],
-        outcome: ["", ""],
-        gallery: [
-          {
-            title: "",
-            platform: "", //mobile, web
-            images: [
-              {
-                imageSrc: "",
-                caption: "",
-              },
-            ],
-          },
-        ],
-        caseStudy: "",
-        liveUrl: "",
-      },
-      {
-        id: "grupa_website",
-        label: "Web",
-        heroImage: "",
-        versionTitle: "",
-        versionContributors: "",
-        yearCompleted: "",
-        versionServices: "",
-        context: ["", "", ""],
-        goal: [""],
-        outcome: ["", ""],
-        gallery: [
-          {
-            title: "",
-            platform: "", //mobile, web
-            images: [
-              {
-                imageSrc: "",
-                caption: "",
-              },
-            ],
-          },
-        ],
-        caseStudy: "",
-        liveUrl: "",
-      },
+      // {
+      //   id: "grupa_web_app",
+      //   label: "Web",
+      //   heroImage: "",
+      //   versionTitle: "",
+      //   versionContributors: "",
+      //   yearCompleted: "",
+      //   versionServices: "",
+      //   context: ["", "", ""],
+      //   goal: [""],
+      //   outcome: ["", ""],
+      //   gallery: [
+      //     {
+      //       title: "",
+      //       platform: "", //mobile, web
+      //       images: [
+      //         {
+      //           imageSrc: "",
+      //           caption: "",
+      //         },
+      //       ],
+      //     },
+      //   ],
+      //   caseStudy: "",
+      //   liveUrl: "",
+      // },
+      // {
+      //   id: "grupa_website",
+      //   label: "Web",
+      //   heroImage: "",
+      //   versionTitle: "",
+      //   versionContributors: "",
+      //   yearCompleted: "",
+      //   versionServices: "",
+      //   context: ["", "", ""],
+      //   goal: [""],
+      //   outcome: ["", ""],
+      //   gallery: [
+      //     {
+      //       title: "",
+      //       platform: "", //mobile, web
+      //       images: [
+      //         {
+      //           imageSrc: "",
+      //           caption: "",
+      //         },
+      //       ],
+      //     },
+      //   ],
+      //   caseStudy: "",
+      //   liveUrl: "",
+      // },
     ],
   },
 
   //ASP
-  {
-    id: "asp",
-    companyName: "African Summit at Princeton",
-    timeline: "2019 – 2021",
-    servicesRendered: ["engineering"],
-    summary:
-      "Web presence for the annual African Summit at Princeton University (1st, 2nd & 3rd editions)",
-    industry: "Community",
-    versions: [
-      {
-        id: "asp_website",
-        label: "Website",
-        heroImage:
-          "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1780906701/asp_web_hqpceu.png",
-      },
-    ],
-  },
+  // {
+  //   id: "asp",
+  //   companyName: "African Summit at Princeton",
+  //   timeline: "2019 – 2021",
+  //   servicesRendered: ["engineering"],
+  //   summary:
+  //     "Web presence for the annual African Summit at Princeton University (1st, 2nd & 3rd editions)",
+  //   industry: "Community",
+  //   versions: [
+  //     {
+  //       id: "asp_website",
+  //       label: "Website",
+  //       heroImage:
+  //         "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1780906701/asp_web_hqpceu.png",
+  //     },
+  //   ],
+  // },
 
   //BakeVillage
   {
