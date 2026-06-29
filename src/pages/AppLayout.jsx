@@ -10,6 +10,7 @@ function AppLayout() {
   const isAboutOpen = location.pathname === "/about";
 
   function handleCloseAbout() {
+    document.body.style.overflow = "";
     navigate("/");
   }
 

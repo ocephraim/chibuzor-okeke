@@ -2,47 +2,46 @@ export const reviews = [
   {
     id: "review-1",
     gridArea: "r1",
-    name: "Chibuzor Okeke",
-    role: "CEO of someplace",
-    image: "/chibuzor.jpeg",
-    reviewText: "He is a great designer, plus one other line",
-    reviewSummary: "Great guy",
+    name: "Krishna Vamsee",
+    role: "Co-founder, Unque.me",
+    image: "/Krishna.png",
+    reviewText:
+      "Chibuzor brought exceptional clarity to our product from day one, combining strategic thinking with outstanding UX and UI design to help shape our vision during the earliest stages of the company.",
+    reviewSummary: "Strategic Thinker",
     isHighlighted: false,
   },
   {
     id: "review-2",
     gridArea: "r2",
-    name: "Chibuzor Okeke",
-    role: "CEO of someplace",
-    image: "/chibuzor.jpeg",
+    name: "Olawale Ariyo",
+    role: "Senior Frontend Engineer, Busha",
+    image: "/Wale.jpeg",
     reviewText:
-      "A review from someone I worked with in the past that is in multiple lines. Should be one of the best reviews I collect and should be from someone of note",
+      "Working with Chibuzor is a seamless experience. His attention to detail, product thinking, and ability to design intuitive, world-class user experiences consistently elevate every project we collaborate on.",
 
-    reviewSummary: "Innovative thinker",
+    reviewSummary: "Great Teammate",
     isHighlighted: false,
   },
   {
     id: "review-3",
     gridArea: "r3",
-    name: "Chibuzor Okeke",
-    role: "CEO of someplace",
-    image: "/chibuzor.jpeg",
+    name: "Samuel Ekpe",
+    role: "CEO, Grupa",
+    image: "/Sam.png",
     reviewText:
-      "A review from someone I worked with in the past that is in multiple lines. Should be one of the best reviews I collect and should be from someone of note",
-
-    reviewSummary: "Results-driven leader",
+      "For over five years, Chibuzor played a pivotal role in shaping our products. He grew into an indispensable design and product leader whose decisions shaped the direction of the company at every critical stage, providing real business value.",
+    reviewSummary: "Design Leader",
     isHighlighted: false,
   },
   {
     id: "review-4",
     gridArea: "r4",
-    name: "Chibuzor Okeke",
-    role: "CEO of someplace",
-    image: "/chibuzor.jpeg",
+    name: "Boma Josiah",
+    role: "Senior Product Designer",
+    image: "/Boma.png",
     reviewText:
-      "A review from someone I worked with in the past that is in multiple lines. Should be one of the best reviews I collect and should be from someone of note",
-
-    reviewSummary: "Visionary strategist",
+      "I have worked closely with Chibuzor over the years. I admire how honest and self-aware he is, he enjoys tackling design problems, his Product Design expertise is deep and well-rounded.",
+    reviewSummary: "Problem Solver",
     isHighlighted: false,
   },
 ];

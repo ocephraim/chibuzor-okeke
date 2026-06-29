@@ -70,6 +70,10 @@ const stickers = [
   },
 ];
 
+const StickerContainer = styled(motion.div)`
+  /* position: relative; */
+`;
+
 const Sticker = styled(motion.img)`
   width: 8rem;
   height: auto;
@@ -87,10 +91,9 @@ const Sticker = styled(motion.img)`
 
   @media screen and (max-width: 820px) {
     width: 6rem;
-    /* left: ${(props) => props.$left - 10 || "auto"}; */
   }
-  /* -webkit-filter: drop-shadow(1px 2px 1px rgba(var(--color-text-800), 0.2)); */
 `;
+
 const Tooltip = styled(motion.span)`
   position: absolute;
   left: 50%;
@@ -130,7 +133,7 @@ function AboutStickers() {
   return (
     <>
       {stickers.map((sticker, i) => (
-        <div key={sticker.id}>
+        <StickerContainer key={sticker.id}>
           <Sticker
             // onMouseEnter={handleShowTooltip}
             // onMouseLeave={handleHideTooltip}
@@ -171,7 +174,7 @@ function AboutStickers() {
               </Tooltip>
             )}
           </AnimatePresence> */}
-        </div>
+        </StickerContainer>
       ))}
     </>
   );
