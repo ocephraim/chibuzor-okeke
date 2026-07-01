@@ -210,7 +210,7 @@ function Project({ project, index = 0, onVersionClick }) {
         ease: "easeOut",
         delay: index * 0.08,
       }}
-      viewport={{ once: false, amount: 0.05 }}
+      viewport={{ once: true, amount: 0.05 }}
     >
       <ProjectInfo>
         <ProjectDetails>

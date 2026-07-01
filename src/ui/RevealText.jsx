@@ -63,7 +63,7 @@ export function RevealWords({
   const words = text.split(" ");
 
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: false, amount: 0.05 });
+  const isInView = useInView(containerRef, { once: true, amount: 0.05 });
   const shouldAnimate = onMount || isInView;
 
   return (

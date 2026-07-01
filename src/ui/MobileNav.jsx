@@ -1,28 +1,27 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import { motion } from "motion/react";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "motion/react";
 import styled from "styled-components";
 
 import { useBrowserTime } from "../hooks/useBrowserTime";
 import Button from "./Button";
 import { useCopyEmail } from "../hooks/useCopyEmail";
-import { RevealWords } from "./RevealText";
 
 const StyledMobileNav = styled(motion.nav)`
   width: 100%;
-  height: ${(props) => (props.$isOpen ? "100dvh" : "6rem")};
+  /* height: ${(props) => (props.$isOpen ? "100dvh" : "6rem")}; */
   margin: 0 auto;
   padding: 0 2rem;
 
   display: flex;
-  flex-direction: ${(props) => (props.$isOpen ? "column" : "row")};
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
 
-  background: ${(props) =>
+  /* background: ${(props) =>
     props.$isOpen
       ? "rgba(var(--color-bg-rgb), 0.8)"
-      : "rgba(var(--color-bg-rgb), 0.4)"};
+      : "rgba(var(--color-bg-rgb), 0.4)"}; */
   backdrop-filter: blur(10px);
   /* mix-blend-mode: ${(props) => (props.$isOpen ? "none" : "multiply")}; */
 
@@ -30,7 +29,10 @@ const StyledMobileNav = styled(motion.nav)`
   top: 0;
   left: 0;
   z-index: 100;
-  transition: all ease 0.5;
+  /* transition:
+    height 0.5s ease-out,
+    background 0.5s ease-out; */
+  /* transition: all 0.5s ease; */
 
   @media screen and (min-width: 657px) {
     display: none;
@@ -70,10 +72,16 @@ const StyledButton = styled(Button)`
 `;
 
 const NavList = styled.ul`
+  width: 100%;
   min-width: 22rem;
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: 1.6rem;
+
+  & a {
+    width: 100%;
+    padding: 0.8rem 0;
+  }
 
   span {
     @media screen and (max-width: 657px) {
@@ -120,6 +128,63 @@ const EmailBlock = styled(motion.div)`
   }
 `;
 
+//motion variants
+const navVariant = {
+  hidden: {
+    height: "6rem",
+    backgroundColor: "rgba(var(--color-bg-rgb), 0.4)",
+    transition: { ease: "easeOut", duration: 0.5, delay: 0.8 },
+  },
+  visible: {
+    height: "100dvh",
+    backgroundColor: "rgba(var(--color-bg-rgb), 0.8)",
+    transition: { ease: "easeOut", duration: 0.1 },
+  },
+};
+
+const menuVariants = {
+  hidden: { y: 50, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { ease: "easeOut", duration: 0.5, delay: 0.1 },
+  },
+  exit: {
+    y: 50,
+    opacity: 0,
+    transition: { ease: "easeOut", duration: 0.4, delay: 0.4 },
+  },
+};
+
+const metaVariants = {
+  hidden: { y: 50, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { ease: "easeOut", duration: 0.5, delay: 0.25 },
+  },
+  exit: {
+    y: 50,
+    opacity: 0,
+    transition: { ease: "easeOut", duration: 0.4, delay: 0.2 },
+  },
+};
+
+const emailVariants = {
+  hidden: { y: 50, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { ease: "easeOut", duration: 0.5, delay: 0.4 },
+  },
+  exit: {
+    y: 50,
+    opacity: 0,
+    transition: { ease: "easeOut", duration: 0.4, delay: 0 },
+  },
+};
+//motion variants
+
 function NavClock() {
   const time = useBrowserTime();
 
@@ -133,6 +198,8 @@ function NavClock() {
 function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
   const { EMAIL } = useCopyEmail();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -145,11 +212,30 @@ function MobileNav() {
     setIsOpen(!isOpen);
   }
 
+  function handleWorkClick(e) {
+    e.preventDefault();
+    setIsOpen(false);
+
+    if (location.pathname !== "/") {
+      navigate("/");
+    }
+
+    setTimeout(() => {
+      const element = document.getElementById("work");
+
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 1350);
+  }
+
   return (
     <>
       <StyledMobileNav
         $isOpen={isOpen}
-        transition={{ ease: "easeInOut", duration: 0.5 }}
+        variants={navVariant}
+        initial="hidden"
+        animate={isOpen ? "visible" : "hidden"}
       >
         <MenuLinks>
           <MenuControl>
@@ -163,58 +249,74 @@ function MobileNav() {
             </StyledButton>
           </MenuControl>
 
-          {isOpen && (
-            <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 50, opacity: 0 }}
-              transition={{ ease: "easeOut", duration: 0.5 }}
-            >
-              <NavList>
-                <StyledNavLink to="/about" onClick={handleOpenNav}>
-                  • About
-                </StyledNavLink>
-                <StyledNavLink to="/">• Work</StyledNavLink>
-                <StyledNavLink to="/">• Lets chat</StyledNavLink>
-              </NavList>
-            </motion.div>
-          )}
+          <AnimatePresence>
+            {isOpen && (
+              <motion.div
+                variants={menuVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                style={{
+                  width: "100%",
+                }}
+                // transition={{
+                //   ease: "easeOut",
+                //   duration: 0.5,
+                // }}
+              >
+                <NavList>
+                  <StyledNavLink to="/about" onClick={handleOpenNav}>
+                    • About
+                  </StyledNavLink>
+                  <StyledNavLink to="/" onClick={handleWorkClick}>
+                    • Work
+                  </StyledNavLink>
+                  <StyledNavLink
+                    as="a"
+                    href={`mailto:${EMAIL}`}
+                    onClick={handleOpenNav}
+                  >
+                    • Lets chat
+                  </StyledNavLink>
+                </NavList>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </MenuLinks>
 
-        {isOpen && (
-          <NavFooter>
-            <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 50, opacity: 0 }}
-              transition={{ ease: "easeOut", duration: 0.5, delay: 0.2 }}
-              style={MetaInfo}
-            >
-              <span>Based in Lagos, NG</span>
-              <NavClock />
-            </motion.div>
-
-            <EmailBlock as="a" href={`mailto:${EMAIL}`}>
-              <motion.h4
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: 50, opacity: 0 }}
-                transition={{ ease: "easeOut", duration: 0.5, delay: 0.4 }}
+        <AnimatePresence>
+          {isOpen && (
+            <NavFooter>
+              <motion.div
+                variants={metaVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                // transition={{
+                //   ease: "easeOut",
+                //   duration: 0.5,
+                //   delay: 0.25,
+                // }}
+                style={MetaInfo}
               >
-                {/* <RevealWords
-                  text={`${EMAIL} →`}
-                  style={{
-                    textDecoration: "underline",
-                    width: "100%",
-                    lineHeight: "110%",
-                  }}
-                  delay={0.4}
-                /> */}
-                {EMAIL} →
-              </motion.h4>
-            </EmailBlock>
-          </NavFooter>
-        )}
+                <span>Based in Lagos, NG</span>
+                <NavClock />
+              </motion.div>
+
+              <EmailBlock as="a" href={`mailto:${EMAIL}`}>
+                <motion.h4
+                  variants={emailVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  // transition={{ ease: "easeOut", duration: 0.5, delay: 0.4 }}
+                >
+                  {EMAIL} →
+                </motion.h4>
+              </EmailBlock>
+            </NavFooter>
+          )}
+        </AnimatePresence>
       </StyledMobileNav>
     </>
   );

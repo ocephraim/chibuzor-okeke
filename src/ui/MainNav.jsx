@@ -129,9 +129,9 @@ function MainNav() {
             </Button>
           </NavList>
         </Nav>
-      </NavContainer>
 
-      <MobileNav />
+        <MobileNav />
+      </NavContainer>
     </>
   );
 }

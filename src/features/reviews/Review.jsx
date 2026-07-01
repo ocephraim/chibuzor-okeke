@@ -204,7 +204,7 @@ function Review({
         opacity: { duration: 0.5, ease: "easeOut", delay: index * 0.08 },
         y: { duration: 0.5, ease: "easeOut", delay: index * 0.08 },
       }}
-      viewport={{ once: false, amount: 0.05 }}
+      viewport={{ once: true, amount: 0.05 }}
       $gridArea={gridArea}
       $isHighlighted={isHighlighted}
       $expandAnchor={expandAnchor}

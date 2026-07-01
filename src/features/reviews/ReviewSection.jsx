@@ -151,7 +151,7 @@ function ReviewSection() {
                 delay: index * 0.08,
               }}
               index={index}
-              viewport={{ once: false, amount: 0.05 }}
+              viewport={{ once: true, amount: 0.05 }}
               key={item.gridArea}
               gridarea={item.gridArea}
             />

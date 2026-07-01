@@ -84,7 +84,7 @@ function Service({ title, serviceItem, tools, isOpen, onClick }) {
         ease: "easeOut",
         delay: 0.08,
       }}
-      viewport={{ once: false, amount: 0.05 }}
+      viewport={{ once: true, amount: 0.05 }}
       type="button"
       $isOpen={isOpen}
       onClick={onClick}

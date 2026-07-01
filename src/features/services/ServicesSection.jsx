@@ -98,7 +98,7 @@ function ServicesSection() {
             ease: "easeOut",
             delay: 0.08,
           }}
-          viewport={{ once: false, amount: 0.05 }}
+          viewport={{ once: true, amount: 0.05 }}
         >
           <ServiceItems type={isActiveService} />
         </ServiceItemContainer>
