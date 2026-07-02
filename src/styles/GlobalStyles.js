@@ -64,6 +64,11 @@ body {
   @media screen and (max-width: 657px) {
     font-size: 1.3rem;
   }
+
+  &::selection {
+    background-color: var(--color-accent);
+    color: var(--color-text-800);
+  }
 }
 
 section {

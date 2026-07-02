@@ -69,6 +69,7 @@ export function useCopyEmail() {
       if (!isCopyShortcut) return;
 
       e.preventDefault();
+      e.stopImmediatePropagation();
       await handleCopyEmail();
     }
 

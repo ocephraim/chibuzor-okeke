@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import emailjs from "@emailjs/browser";
 import styled from "styled-components";
 
@@ -85,40 +85,60 @@ const GameDiv = styled.div`
 function ContactSection() {
   const { copied, handleCopyEmail } = useCopyEmail();
   const form = useRef();
+  const [isSending, setIsSending] = useState(false);
 
-  function handleSendEmail(e) {
-    e.preventDefault();
+  const handleSendEmail = useCallback(
+    function (e) {
+      if (e) e.preventDefault();
 
-    emailjs
-      .sendForm("service_tj1qjmh", "template_evbl1mm", form.current, {
-        publicKey: "wJa26mck0SUUmDRO8",
-      })
-      .then(
-        () => {
-          toast.success("Email sent successfully! I'll reply shortly");
-          form.current.reset();
-        },
-        (error) => {
-          toast.error("Email failed to send. Please try again");
-          console.log("FAILED...", error.text);
-        },
-      );
-  }
+      if (isSending) return;
+      if (!form.current.reportValidity()) return;
 
-  useEffect(function () {
-    function handleKeyDown(e) {
-      const key = e.key.to.Lowercase();
-      const isSendShortcut = (e.metaKey || e.ctrlKey) && key === "Enter";
+      setIsSending(true);
 
-      if (!isSendShortcut) return;
-      e.preventDefault();
-      handleSendEmail();
-    }
+      emailjs
+        .sendForm("service_tj1qjmh", "template_evbl1mm", form.current, {
+          publicKey: "wJa26mck0SUUmDRO8",
+        })
+        .then(
+          () => {
+            toast.success("Email sent successfully! I'll reply shortly");
+            form.current.reset();
+          },
+          (error) => {
+            toast.error("Email failed to send. Please try again");
+            console.error("FAILED...", error);
+          },
+        )
+        .catch((err) => {
+          toast.error("A network error occured. Please try again");
+          console.error("CRITICAL ERROR:", err);
+        })
+        .finally(() => {
+          setIsSending(false);
+        });
+    },
+    [isSending],
+  );
 
-    window.addEventListener("keydown", handleKeyDown);
+  useEffect(
+    function () {
+      function handleKeyDown(e) {
+        const key = e.key;
+        const isSendShortcut = (e.metaKey || e.ctrlKey) && key === "Enter";
 
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+        if (isSendShortcut) {
+          e.preventDefault();
+          handleSendEmail();
+        }
+      }
+
+      window.addEventListener("keydown", handleKeyDown);
+
+      return () => window.removeEventListener("keydown", handleKeyDown);
+    },
+    [handleSendEmail],
+  );
 
   function onCopyEmail(e) {
     e.preventDefault();
@@ -158,8 +178,9 @@ function ContactSection() {
               variation="primary"
               icon={<Icons type="send" />}
               shortcuts={<ButtonShortcuts type="send" />}
+              disabled={isSending}
             >
-              Send
+              {isSending ? "Sending..." : "Send"}
             </Button>
 
             <Button

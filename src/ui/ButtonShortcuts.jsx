@@ -57,7 +57,7 @@ function CaseStudyShortcuts() {
     <KeyGroup>
       <Key>⌘</Key>
       <Key>⇧</Key>
-      <Key>F</Key>
+      <Key>Y</Key>
     </KeyGroup>
   );
 }

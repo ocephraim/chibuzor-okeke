@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import styled from "styled-components";
 
@@ -75,6 +75,49 @@ function Links() {
     setShowTooltip(false);
   }
 
+  const handleOpenCaseStudy = useCallback(
+    function (e) {
+      if (e) e.preventDefault();
+      window.open(caseStudy, "blank", "noopener, noreferrer");
+    },
+    [caseStudy],
+  );
+
+  const handleOpenLiveUrl = useCallback(
+    function (e) {
+      if (e) e.preventDefault();
+      window.open(liveUrl, "_blank", "noopener, noreferrer");
+    },
+    [liveUrl],
+  );
+
+  useEffect(
+    function () {
+      function handleKeyDown(e) {
+        const key = e.key.toLowerCase();
+        const isCaseStudyShortcut =
+          e.shiftKey && (e.metaKey || e.ctrlKey) && key === "y";
+        const isLiveUrlShortcut =
+          e.shiftKey && (e.metaKey || e.ctrlKey) && key === "l";
+
+        if (isCaseStudyShortcut) {
+          e.preventDefault();
+          handleOpenCaseStudy();
+        }
+
+        if (isLiveUrlShortcut) {
+          e.preventDefault();
+          handleOpenLiveUrl();
+        }
+      }
+
+      window.addEventListener("keydown", handleKeyDown);
+
+      return () => window.removeEventListener("keydown", handleKeyDown);
+    },
+    [handleOpenCaseStudy, handleOpenLiveUrl],
+  );
+
   return (
     <ButtonContainer
       initial={{ opacity: 0 }}
@@ -95,9 +138,7 @@ function Links() {
           icon={<Icons type="casestudy" />}
           shortcuts={<ButtonShortcuts type="casestudy" />}
           disabled={!caseStudy}
-          onClick={() =>
-            window.open(caseStudy, "_blank", "noopener, nooreferrer")
-          }
+          onClick={handleOpenCaseStudy}
         >
           Full Case Study
         </Button>
@@ -125,7 +166,7 @@ function Links() {
           variation="secondary"
           icon={<Icons type="livelink" />}
           shortcuts={<ButtonShortcuts type="livelink" />}
-          onClick={() => window.open(liveUrl, "_blank", "noopener, noreferrer")}
+          onClick={handleOpenLiveUrl}
         >
           Live Link
         </StyledSecButton>

@@ -53,6 +53,8 @@ const Nav = styled.nav`
 `;
 
 const StyledNavLink = styled(NavLink)`
+  outline: none;
+
   &:link,
   &:visited {
     font-weight: 600;

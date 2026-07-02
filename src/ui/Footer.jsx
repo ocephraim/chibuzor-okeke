@@ -53,13 +53,13 @@ function Footer() {
         <p>© Copyright 2026</p>
         <p>🧱 This site is a Work In Progress</p>
         <ul>
-          <a href="" target="_blank">
+          {/* <a href="" target="_blank">
             Instagram,
-          </a>
-          <a href="" target="_blank">
+          </a> */}
+          <a href="https://x.com/ocephraim" target="_blank">
             Twitter (X),
           </a>
-          <a href="" target="_blank">
+          <a href="https://linkedin.com/in/ocephraim" target="_blank">
             LinkedIn
           </a>
         </ul>

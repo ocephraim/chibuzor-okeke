@@ -126,7 +126,7 @@ const ReviewSummary = styled.p`
   align-self: flex-end;
 
   @media screen and (max-width: 657px) {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 `;
 
@@ -140,7 +140,7 @@ const ReviewText = styled.p`
   align-self: flex-end;
 
   @media screen and (max-width: 657px) {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 `;
 

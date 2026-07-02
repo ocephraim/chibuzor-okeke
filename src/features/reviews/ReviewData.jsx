@@ -6,7 +6,7 @@ export const reviews = [
     role: "Co-founder, Unque.me",
     image: "/Krishna.png",
     reviewText:
-      "Chibuzor brought exceptional clarity to our product from day one, combining strategic thinking with outstanding UX and UI design to help shape our vision during the earliest stages of the company.",
+      "Chibuzor brought clarity to our product from day one, combining strategic thinking with strong UX and UI design to help shape our vision during the company's earliest stages. He was consistently professional, patient, and thoughtful in his approach. His time discipline kept us on schedule, and his clear communication made collaboration smooth throughout.",
     reviewSummary: "Strategic Thinker",
     isHighlighted: false,
   },
