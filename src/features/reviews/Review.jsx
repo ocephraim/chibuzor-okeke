@@ -120,7 +120,7 @@ const ReviewSummary = styled.p`
   font-family: "PT Serif", serif;
   font-weight: 700;
   font-style: italic;
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   line-height: 100%;
 
   align-self: flex-end;
@@ -134,7 +134,7 @@ const ReviewText = styled.p`
   font-family: "PT Serif", serif;
   font-weight: 700;
   font-style: italic;
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   line-height: 150%;
 
   align-self: flex-end;
