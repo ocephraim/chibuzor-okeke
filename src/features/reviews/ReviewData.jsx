@@ -36,7 +36,7 @@ export const reviews = [
   {
     id: "review-4",
     gridArea: "r4",
-    name: "Boma Josiah",
+    name: "Chekwe Ezekiel",
     role: "Senior Product Designer",
     image: "/Boma.png",
     reviewText:
