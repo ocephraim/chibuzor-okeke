@@ -81,7 +81,7 @@ function Home() {
           <Heading>
             <RevealWords
               onMount={true}
-              text="Design Engineer crafting delightful digital experiences that drive business growth and meet the users' needs."
+              text="Product Designer/Engineer crafting delightful digital experiences that drive business growth and meet the users' needs."
             />
           </Heading>
 
