@@ -8,7 +8,7 @@ import { motion } from "motion/react";
 
 const StyledSection = styled.section`
   margin-top: -10rem;
-  background-color: #fff;
+  background-color: var(--color-white);
   position: relative;
   z-index: 10;
 `;
@@ -19,7 +19,7 @@ const StyledDiv = styled.div`
   gap: 4rem;
   align-items: flex-start;
   justify-content: space-between;
-  height: 45rem;
+  height: 35rem;
 
   @media screen and (max-width: 780px) {
     height: unset;

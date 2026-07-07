@@ -3,26 +3,26 @@ import styled, { css } from "styled-components";
 const variations = {
   primary: css`
     background-color: var(--color-primary);
-    color: #fff;
+    color: #ffffff;
     padding: 1.2rem;
 
     & span {
-      background-color: var(--color-text-800);
+      background-color: #221f1c;
       mix-blend-mode: screen;
-      color: #fff;
+      color: #ffffff;
     }
   `,
 
   secondary: css`
-    background-color: var(--color-text-800);
+    background-color: var(--color-bg-dark);
     mix-blend-mode: color-dodge;
-    color: #fff;
+    color: #ffffff;
     padding: 1.2rem;
 
     & span {
-      background-color: var(--color-text-800);
+      background-color: #221f1c;
       mix-blend-mode: screen;
-      color: #fff;
+      color: #ffffff;
     }
   `,
 
@@ -34,7 +34,7 @@ const variations = {
     & span {
       /* background-color: var(--color-text-800); */
       mix-blend-mode: difference;
-      color: var(--color-text-50);
+      color: #ffffff;
     }
   `,
 

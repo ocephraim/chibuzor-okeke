@@ -4,7 +4,7 @@ import { useProjectVersionModal } from "./context";
 const Container = styled.div`
   padding: 0 2.4rem 2.4rem;
   width: 100%;
-  border-bottom: 1px solid var(--color-text-50);
+  border-bottom: 1px solid var(--color-border-light);
 
   display: flex;
   flex-direction: column;
@@ -48,7 +48,7 @@ const StyledGoal = styled.div`
   width: 100%;
   padding: 1.6rem;
   border-radius: 1.2rem;
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-light);
 `;
 
 const StyledOutcome = styled.div`
@@ -60,6 +60,7 @@ const StyledOutcome = styled.div`
   padding: 1.6rem;
   border-radius: 1.2rem;
   background-color: var(--color-primary-100);
+  color: var(--color-text-dark);
 `;
 
 const StyledTitle = styled.h4`

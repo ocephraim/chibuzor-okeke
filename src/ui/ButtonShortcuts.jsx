@@ -6,7 +6,7 @@ const Key = styled.span`
 
   border-radius: 0.4rem;
   background-color: var(--color-primary);
-  color: #fff;
+  color: #ffffff;
 
   /* filter: drop-shadow(0 2px 1px inherit); */
   box-shadow: inset 0 -2px 0px rgba(var(--color-primary-rgb), 0.2);

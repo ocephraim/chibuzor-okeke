@@ -12,7 +12,7 @@ import { useFollowCursor } from "../../../hooks/useFollowCursor";
 import { SectionTitle } from "../../../ui/Text";
 
 const StyledFooter = styled.footer`
-  background-color: var(--color-text-800);
+  background-color: var(--color-bg-dark);
   border: none;
   padding: 4rem 0;
 
@@ -28,7 +28,7 @@ const StyledFooter = styled.footer`
 
 const StyledSectionTitle = styled(SectionTitle)`
   & span {
-    color: var(--color-text-50);
+    color: var(--color-text-light);
   }
 `;
 
@@ -56,7 +56,7 @@ const EmailBlock = styled.div`
     line-height: 100%;
     text-align: center;
     text-decoration: underline;
-    color: var(--color-text-50);
+    color: var(--color-text-light);
     opacity: 0.08;
 
     @media screen and (max-width: 820px) {

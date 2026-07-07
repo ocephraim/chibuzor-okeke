@@ -6,35 +6,26 @@ import styled from "styled-components";
 import { useBrowserTime } from "../hooks/useBrowserTime";
 import Button from "./Button";
 import { useCopyEmail } from "../hooks/useCopyEmail";
+import { SectionTitle } from "./Text";
+import ChangeTheme from "./ChangeTheme";
 
 const StyledMobileNav = styled(motion.nav)`
   width: 100%;
-  /* height: ${(props) => (props.$isOpen ? "100dvh" : "6rem")}; */
   margin: 0 auto;
   padding: 0 2rem;
+  backdrop-filter: blur(10px);
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 
-  /* background: ${(props) =>
-    props.$isOpen
-      ? "rgba(var(--color-bg-rgb), 0.8)"
-      : "rgba(var(--color-bg-rgb), 0.4)"}; */
-  backdrop-filter: blur(10px);
-  /* mix-blend-mode: ${(props) => (props.$isOpen ? "none" : "multiply")}; */
-
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
-  /* transition:
-    height 0.5s ease-out,
-    background 0.5s ease-out; */
-  /* transition: all 0.5s ease; */
 
-  @media screen and (min-width: 657px) {
+  @media screen and (min-width: 820px) {
     display: none;
   }
 `;
@@ -82,11 +73,16 @@ const NavList = styled.ul`
     width: 100%;
     padding: 0.8rem 0;
   }
+`;
 
-  span {
-    @media screen and (max-width: 657px) {
-      display: none;
-    }
+const MidSection = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+
+  & p {
+    color: var(--color-text-400);
   }
 `;
 
@@ -125,6 +121,10 @@ const EmailBlock = styled(motion.div)`
     line-height: 100%;
     text-decoration: underline;
     color: var(--color-text-800);
+
+    @media screen and (min-width: 540px) {
+      font-size: 6.4rem;
+    }
   }
 `;
 
@@ -132,12 +132,12 @@ const EmailBlock = styled(motion.div)`
 const navVariant = {
   hidden: {
     height: "6rem",
-    backgroundColor: "rgba(var(--color-bg-rgb), 0.4)",
-    transition: { ease: "easeOut", duration: 0.5, delay: 0.8 },
+    backgroundColor: "rgba(var(--color-bg-light-rgb), 0.4)",
+    transition: { ease: "easeOut", duration: 0.5, delay: 0.3 },
   },
   visible: {
     height: "100dvh",
-    backgroundColor: "rgba(var(--color-bg-rgb), 0.8)",
+    backgroundColor: "rgba(var(--color-bg-light-rgb), 0.95)",
     transition: { ease: "easeOut", duration: 0.1 },
   },
 };
@@ -152,7 +152,21 @@ const menuVariants = {
   exit: {
     y: 50,
     opacity: 0,
-    transition: { ease: "easeOut", duration: 0.4, delay: 0.4 },
+    transition: { ease: "easeOut", duration: 0.4, delay: 0.2 },
+  },
+};
+
+const themeVariants = {
+  hidden: { y: 50, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { ease: "easeOut", duration: 0.5, delay: 0.2 },
+  },
+  exit: {
+    y: 50,
+    opacity: 0,
+    transition: { ease: "easeOut", duration: 0.4, delay: 0.2 },
   },
 };
 
@@ -175,7 +189,7 @@ const emailVariants = {
   visible: {
     y: 0,
     opacity: 1,
-    transition: { ease: "easeOut", duration: 0.5, delay: 0.4 },
+    transition: { ease: "easeOut", duration: 0.5, delay: 0.3 },
   },
   exit: {
     y: 50,
@@ -283,6 +297,20 @@ function MobileNav() {
             )}
           </AnimatePresence>
         </MenuLinks>
+
+        <AnimatePresence>
+          {isOpen && (
+            <MidSection
+              variants={themeVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            >
+              <SectionTitle>Select Theme</SectionTitle>
+              <ChangeTheme />
+            </MidSection>
+          )}
+        </AnimatePresence>
 
         <AnimatePresence>
           {isOpen && (

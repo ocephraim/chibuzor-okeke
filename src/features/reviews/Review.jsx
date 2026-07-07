@@ -58,7 +58,7 @@ const StyledReview = styled(motion.div)`
   grid-area: ${(props) => props.$gridArea};
 
   padding: 2.4rem;
-  background: #fff;
+  background: var(--color-white);
   border-radius: 1.2rem;
   min-height: 17rem;
   z-index: 1;

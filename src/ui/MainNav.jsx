@@ -8,6 +8,7 @@ import ButtonShortcuts from "./ButtonShortcuts";
 import Button from "./Button";
 import Icons from "./Icons";
 import MobileNav from "./MobileNav";
+import ChangeTheme from "./ChangeTheme";
 
 const NavContainer = styled.div`
   height: 6rem;
@@ -27,7 +28,7 @@ const Nav = styled.nav`
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.03); */
   /* background: ${(props) =>
     props.$isScrolled
-      ? "linear-gradient(to bottom, rgba(var(--color-bg-rgb), 0.5) 20%, transparent 80%)"
+      ? "linear-gradient(to bottom, rgba(var(--color-bg-light-rgb), 0.5) 20%, transparent 80%)"
       : "transparent"}; */
 
   position: ${(props) => (props.$isScrolled ? "fixed" : "relative")};
@@ -47,7 +48,7 @@ const Nav = styled.nav`
   @media screen and (max-width: 820px) {
     padding: 0 2rem;
   }
-  @media screen and (max-width: 657px) {
+  @media screen and (max-width: 820px) {
     display: none;
   }
 `;
@@ -61,6 +62,12 @@ const StyledNavLink = styled(NavLink)`
     text-decoration: none;
     color: var(--color-text-800);
   }
+`;
+
+const MidSection = styled.div`
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
 `;
 
 const NavList = styled.ul`
@@ -111,7 +118,13 @@ function MainNav() {
             </div>
           )}
 
-          {!isScrolled && <NavClock />}
+          {!isScrolled && (
+            <MidSection>
+              <NavClock />
+              •
+              <ChangeTheme />
+            </MidSection>
+          )}
 
           <NavList>
             {!isScrolled && (

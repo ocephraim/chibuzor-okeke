@@ -87,8 +87,8 @@ const ReviewsContainer = styled.div`
 `;
 
 const GridSpacer = styled(motion.div)`
-  background-color: rgba(var(--color-accent-rgb), 0.1);
-  border: 1px solid var(--color-text-100);
+  background-color: rgba(var(--color-accent-rgb), 0.05);
+  border: 1px solid var(--color-border-dark);
   border-radius: 1.2rem;
   grid-area: ${(props) => props.gridarea};
   min-height: 17rem;

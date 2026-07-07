@@ -5,7 +5,7 @@ const StyledProject = styled(motion.div)`
   width: 100%;
   height: 43rem;
   padding: 2.4rem 1.6rem;
-  border-bottom: 1px solid var(--color-text-100);
+  border-bottom: 1px solid var(--color-border-dark);
 
   display: flex;
   flex-direction: column;
@@ -132,7 +132,7 @@ const ProjectVersions = styled.div`
 
     scroll-snap-align: start;
 
-    border: 2px solid white;
+    border: none;
     border-radius: 1.2rem;
     cursor: pointer;
     padding: 0;

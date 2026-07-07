@@ -4,8 +4,8 @@ import { useProjectVersionModal } from "./context";
 
 const Container = styled.div`
   padding: 2.4rem;
-  border-top: 1px solid var(--color-text-50);
-  border-bottom: 1px solid var(--color-text-50);
+  border-top: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
 
   display: flex;
   align-items: center;

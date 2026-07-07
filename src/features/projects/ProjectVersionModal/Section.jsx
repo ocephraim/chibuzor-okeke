@@ -64,7 +64,7 @@ const StyledSection = styled.div`
   gap: 2.4rem;
   padding: 0 0 2.4rem;
   margin-top: ${(props) => (props.$platform === "video" ? "-2.4rem" : "0")};
-  border-bottom: 1px solid var(--color-text-50);
+  border-bottom: 1px solid var(--color-border-light);
 
   @media screen and (max-width: 820px) {
     gap: 1.6rem;

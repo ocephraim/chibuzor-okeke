@@ -92,7 +92,7 @@ const Sticker = styled.img`
   -webkit-user-drag: none;
 
   filter: drop-shadow(
-    1px 3px 1px color-mix(in srgb, var(--color-text-800) 20%, transparent)
+    1px 3px 1px color-mix(in srgb, var(--color-text-800) 10%, transparent)
   );
 
   @media screen and (max-width: 820px) {
@@ -103,7 +103,7 @@ const Sticker = styled.img`
 const Tooltip = styled(motion.span)`
   position: absolute;
   bottom: 100%;
-  background-color: var(--color-text-800);
+  background-color: var(--color-bg-dark);
   color: #ffffff;
   font-size: 1.2rem;
   line-height: 1;

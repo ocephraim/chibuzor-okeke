@@ -3,8 +3,8 @@ import Icons from "./Icons";
 
 const StyledFooter = styled.footer`
   overflow: hidden;
-  background-color: var(--color-text-800);
-  color: var(--color-text-50);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
   font-weight: 500;
 
   display: flex;
@@ -15,6 +15,7 @@ const StyledFooter = styled.footer`
     width: 100%;
     height: auto;
     margin-bottom: -2rem;
+    color: inherit;
 
     @media screen and (max-width: 657px) {
       margin-bottom: -0.5rem;

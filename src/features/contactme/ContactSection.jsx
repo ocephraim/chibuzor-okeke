@@ -10,8 +10,8 @@ import ButtonShortcuts from "../../ui/ButtonShortcuts";
 import toast from "react-hot-toast";
 
 const StyledSection = styled.section`
-  background: var(--color-text-800);
-  color: var(--color-text-50);
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
 
   flex-direction: row;
   align-items: stretch;
@@ -48,7 +48,7 @@ const StyledForm = styled.form`
 
   input,
   textarea {
-    background: var(--color-text-50);
+    background: var(--color-text-light);
     mix-blend-mode: soft-light;
     outline: none;
     border-radius: 1.2rem;

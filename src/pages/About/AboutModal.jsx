@@ -14,7 +14,7 @@ const Overlay = styled(motion.div)`
   position: fixed;
   inset: 0;
 
-  background-color: rgba(var(--color-bg-rgb), 0.8);
+  background-color: rgba(var(--color-bg-light-rgb), 0.95);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
 

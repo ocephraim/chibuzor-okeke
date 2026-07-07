@@ -76,12 +76,12 @@ const SlidingContent = styled.div`
 const Img = styled.img`
   height: 47rem;
   width: auto;
-  border-radius: 2.4rem;
+  /* border-radius: 2.4rem; */
 
   flex: 0 0 auto;
 
   /* box-shadow: 0 0 30px rgba(var(--color-text-800-rgb), 0.05); */
-  filter: drop-shadow(0 0 20px rgba(var(--color-text-800-rgb), 0.05));
+  filter: drop-shadow(0 0 7px rgba(var(--color-text-800-rgb), 0.05));
   pointer-events: none;
 
   @media screen and (max-width: 657px) {

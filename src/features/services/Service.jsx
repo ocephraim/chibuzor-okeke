@@ -62,7 +62,7 @@ const BottomTrack = styled.div`
   height: 1px;
   margin-top: 2.4rem;
   flex-shrink: 0;
-  background: var(--color-text-50);
+  background: var(--color-border-light);
 `;
 
 const ProgressFill = styled.div`

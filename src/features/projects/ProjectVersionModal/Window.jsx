@@ -9,7 +9,7 @@ const Overlay = styled(motion.div)`
   position: fixed;
   inset: 0;
 
-  background-color: rgba(var(--color-bg-rgb), 0.5);
+  background-color: rgba(var(--color-bg-light-rgb), 0.5);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
 
@@ -21,7 +21,7 @@ const Overlay = styled(motion.div)`
 
 const StyledPopup = styled(motion.div)`
   border-radius: 2.4rem;
-  background-color: #ffffff;
+  background-color: var(--color-white);
   filter: drop-shadow(1px 1px 10px rgba(var(--color-text-800-rgb), 0.05))
     drop-shadow(7px 10px 45px rgba(var(--color-text-800-rgb), 0.1));
 

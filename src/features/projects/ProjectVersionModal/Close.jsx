@@ -12,7 +12,7 @@ const ButtonContainer = styled(motion.div)`
   z-index: 10;
 
   padding: 1.2rem 2.4rem;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(var(--color-white-rgb), 0.7);
   backdrop-filter: blur(10px);
 
   width: fit-content;

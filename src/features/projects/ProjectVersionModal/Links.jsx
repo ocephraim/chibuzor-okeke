@@ -14,7 +14,7 @@ const ButtonContainer = styled(motion.div)`
   z-index: 10;
 
   padding: 1.2rem 1.2rem;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(var(--color-white-rgb), 0.7);
   backdrop-filter: blur(10px);
 
   width: fit-content;
@@ -31,7 +31,7 @@ const ButtonContainer = styled(motion.div)`
 `;
 
 const StyledSecButton = styled(Button)`
-  mix-blend-mode: darken !important;
+  mix-blend-mode: unset !important;
 `;
 
 const CaseButton = styled.div`
@@ -43,8 +43,8 @@ const Tooltip = styled(motion.span)`
   position: absolute;
   left: 50%;
   bottom: 100%;
-  background-color: var(--color-text-800);
-  color: #fff;
+  background-color: var(--color-bg-dark);
+  color: #ffffff;
   font-size: 1.2rem;
   line-height: 1;
   padding: 0.8rem 0.8rem;

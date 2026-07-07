@@ -109,8 +109,8 @@ const Tooltip = styled.span`
   left: 50%;
   bottom: calc(100% + 0.6rem);
   transform: translate(-50%, 0);
-  background-color: var(--color-text-800);
-  color: #fff;
+  background-color: var(--color-bg-dark);
+  color: #ffffff;
   font-size: 1.2rem;
   line-height: 1;
   padding: 0.6rem 0.8rem;
