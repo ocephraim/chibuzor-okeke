@@ -8,6 +8,7 @@ import Button from "../../ui/Button";
 import Icons from "../../ui/Icons";
 import ButtonShortcuts from "../../ui/ButtonShortcuts";
 import toast from "react-hot-toast";
+import LiquidGlassBlob from "./LiquidGlassBlob";
 
 const StyledSection = styled.section`
   background: var(--color-bg-dark);
@@ -18,7 +19,7 @@ const StyledSection = styled.section`
   justify-content: space-between;
 
   @media screen and (max-width: 657px) {
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 4.8rem;
   }
 `;
@@ -72,9 +73,13 @@ const ButtonContainer = styled.div`
 `;
 
 const GameDiv = styled.div`
-  width: 45%;
+  width: 50%;
   height: auto;
-  background-color: var(--color-text-50);
+  min-height: 40rem;
+  background-color: transparent;
+  border-radius: 2rem;
+  overflow: visible;
+  position: relative;
 
   @media screen and (max-width: 657px) {
     width: 100%;
@@ -195,7 +200,18 @@ function ContactSection() {
         </StyledForm>
       </StyledDiv>
 
-      <GameDiv></GameDiv>
+      <GameDiv>
+        <LiquidGlassBlob />
+        {/* <LiquidGlassBlob /> */}
+        {/* <LiquidGlass
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "90%",
+            height: "90%",
+          }}
+        /> */}
+      </GameDiv>
     </StyledSection>
   );
 }

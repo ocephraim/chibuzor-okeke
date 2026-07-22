@@ -30,9 +30,8 @@ const ImageContainer = styled(motion.button)`
 
 const StyledButton = styled(Button)`
   padding: 1.2rem 2.4rem;
-  /* border: 1px solid var(--color-text-100); */
   border-radius: 2.4rem;
-  /* background-color: #ffffff; */
+  font-size: 1.4rem;
 
   & span {
     border: 1px solid var(--color-text-200);

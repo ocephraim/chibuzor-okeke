@@ -96,7 +96,8 @@ const StyledReview = styled(motion.div)`
       `
       z-index: 1;
       width: 100%;
-      height: 100%;
+      height: auto;
+      overflow: visible;
     `}
   }
 
@@ -193,6 +194,8 @@ function Review({
   onToggleHighlight,
   index,
   expandAnchor,
+  onMouseEnter,
+  onMouseLeave,
 }) {
   const { name, role, image, reviewText, reviewSummary } = review;
 
@@ -209,6 +212,8 @@ function Review({
       $isHighlighted={isHighlighted}
       $expandAnchor={expandAnchor}
       onClick={onToggleHighlight}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       title="click to expand"
     >
       <StyledReviewHeader>
@@ -233,7 +238,7 @@ function Review({
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
         >
           <ReviewSummary>&ldquo;{reviewSummary}&rdquo;</ReviewSummary>
         </FadeText>
@@ -243,7 +248,7 @@ function Review({
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
         >
           <ReviewText>&ldquo;{reviewText}&rdquo;</ReviewText>
         </FadeText>

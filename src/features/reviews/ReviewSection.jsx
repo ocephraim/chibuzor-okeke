@@ -100,13 +100,26 @@ const GridSpacer = styled(motion.div)`
 `;
 
 function ReviewSection() {
-  // const [highlightedId, setHighlightedId] = useState(() =>
-  //   reviews.find((review) => review.isHighlighted?.id ?? null),
-  // );
-  const [highlightedId, setHighlightedId] = useState(null);
+  const [clickedId, setClickedId] = useState(null);
+  const [hoveredId, setHoveredId] = useState(null);
+
+  // Merge: hover takes precedence on pointer devices, click/tap always works
+  const highlightedId = hoveredId ?? clickedId;
 
   function handleToggleHighlight(id) {
-    setHighlightedId((current) => (current === id ? null : id));
+    setClickedId((current) => (current === id ? null : id));
+  }
+
+  function handleMouseEnter(id) {
+    // Only activate hover on true pointer (non-touch) devices
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      setHoveredId(id);
+    }
+  }
+
+  function handleMouseLeave() {
+    setHoveredId(null);
+    setClickedId(null);
   }
 
   function getExpandAnchor(gridArea) {
@@ -139,6 +152,8 @@ function ReviewSection() {
               gridArea={item.gridArea}
               isHighlighted={highlightedId === item.review.id}
               onToggleHighlight={() => handleToggleHighlight(item.review.id)}
+              onMouseEnter={() => handleMouseEnter(item.review.id)}
+              onMouseLeave={handleMouseLeave}
               expandAnchor={getExpandAnchor(item.gridArea)}
             />
           ) : (

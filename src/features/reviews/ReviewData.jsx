@@ -14,7 +14,7 @@ export const reviews = [
     id: "review-2",
     gridArea: "r2",
     name: "Olawale Ariyo",
-    role: "Senior Frontend Engineer, Busha",
+    role: "Software Engineer, Busha",
     image: "/Wale.png",
     reviewText:
       "Working with Chibuzor is a seamless experience. His attention to detail, product thinking, and ability to design intuitive, world-class user experiences consistently elevate every project we collaborate on.",

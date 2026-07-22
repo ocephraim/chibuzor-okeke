@@ -46,6 +46,7 @@ export function useCopyEmail() {
               window.location.href = `mailto:${EMAIL}`;
               toast.dismiss(t.id);
             }}
+            style={{ color: "var(--color-text-dark)" }}
           >
             Open Mail App
           </Button>
