@@ -63,13 +63,13 @@ const LiquidBlob = () => {
     return 1.3;
   }, [size.width]);
 
-  // const segments = size.width <= 657 ? 64 : 128;
+  const segments = size.width <= 657 ? 64 : 128;
 
   const { geometry, basePositions } = useMemo(() => {
-    const geo = new THREE.SphereGeometry(blobRadius, 128, 128);
+    const geo = new THREE.SphereGeometry(blobRadius, segments, segments);
     const base = geo.attributes.position.array.slice();
     return { geometry: geo, basePositions: base };
-  }, [blobRadius]);
+  }, [blobRadius, segments]);
 
   // Animating with useFrame
   useFrame(({ clock, pointer, camera }) => {

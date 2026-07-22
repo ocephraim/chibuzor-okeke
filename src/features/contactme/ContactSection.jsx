@@ -84,6 +84,7 @@ const GameDiv = styled.div`
   @media screen and (max-width: 657px) {
     width: 100%;
     height: 45rem;
+    display: none;
   }
 `;
 
@@ -202,15 +203,6 @@ function ContactSection() {
 
       <GameDiv>
         <LiquidGlassBlob />
-        {/* <LiquidGlassBlob /> */}
-        {/* <LiquidGlass
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "90%",
-            height: "90%",
-          }}
-        /> */}
       </GameDiv>
     </StyledSection>
   );

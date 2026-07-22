@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { Heading, SectionTitle } from "../../ui/Text";
 import Review from "./Review";
 import { reviews } from "./ReviewData";
