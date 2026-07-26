@@ -9,6 +9,7 @@ import Icons from "../../ui/Icons";
 import ButtonShortcuts from "../../ui/ButtonShortcuts";
 import toast from "react-hot-toast";
 import LiquidGlassBlob from "./LiquidGlassBlob";
+import NowPlaying from "./NowPlaying";
 
 const StyledSection = styled.section`
   background: var(--color-bg-dark);
@@ -80,6 +81,10 @@ const GameDiv = styled.div`
   border-radius: 2rem;
   overflow: visible;
   position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @media screen and (max-width: 657px) {
     width: 100%;
@@ -202,7 +207,8 @@ function ContactSection() {
       </StyledDiv>
 
       <GameDiv>
-        <LiquidGlassBlob />
+        {/* <LiquidGlassBlob /> */}
+        <NowPlaying />
       </GameDiv>
     </StyledSection>
   );

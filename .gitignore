@@ -16,6 +16,8 @@ dist-ssr
 .vscode/*
 !.vscode/extensions.json
 .idea
+.env
+.env.local
 .DS_Store
 *.suo
 *.ntvs*
@@ -25,3 +27,5 @@ dist-ssr
 
 #local folders
 docs/
+.vercel
+.env*
