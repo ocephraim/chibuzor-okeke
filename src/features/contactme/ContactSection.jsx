@@ -207,8 +207,8 @@ function ContactSection() {
       </StyledDiv>
 
       <GameDiv>
-        {/* <LiquidGlassBlob /> */}
-        <NowPlaying />
+        <LiquidGlassBlob />
+        {/* <NowPlaying /> */}
       </GameDiv>
     </StyledSection>
   );
