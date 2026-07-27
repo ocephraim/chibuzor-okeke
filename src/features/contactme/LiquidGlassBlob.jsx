@@ -177,7 +177,7 @@ export default function LiquidGlassBlob() {
       <LiquidBlob />
 
       {/* <Environment preset="night" /> */}
-      <Environment files="/environments/passendorf_snow_4k.hdr" />
+      <Environment files="/environments/passendorf_snow_1k.hdr" />
     </Canvas>
   );
 }
