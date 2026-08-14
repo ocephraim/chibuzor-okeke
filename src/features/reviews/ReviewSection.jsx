@@ -4,7 +4,7 @@ import { getReveiwsByIds, reviews } from "./ReviewData";
 
 const StyledSection = styled.section`
   width: 100%;
-  height: 450px;
+  height: 300px;
   padding: 0 4.8rem;
 
   display: flex;
@@ -15,7 +15,6 @@ const StyledSection = styled.section`
   flex-wrap: wrap;
 
   @media screen and (max-width: 650px) {
-    height: 300px;
     padding: 0 2.4rem;
     gap: 4rem;
   }

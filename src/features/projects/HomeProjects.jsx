@@ -18,7 +18,7 @@ const FeaturedSection = styled.section`
   > div {
     display: flex;
     flex-direction: column;
-    gap: 16rem;
+    gap: 10rem;
   }
 
   @media screen and (max-width: 657px) {
