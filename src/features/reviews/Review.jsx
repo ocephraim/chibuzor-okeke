@@ -147,7 +147,7 @@ function Review({ review }) {
         viewport={{ once: true }}
         onMouseEnter={() => setIsHighlighted(true)}
         onMouseLeave={() => setIsHighlighted(false)}
-        onTouchStart={toggleHighlight}
+        onClick={toggleHighlight}
       >
         <ReviewBgLayer
           initial={{ clipPath: "inset(0% 100% 0% 0%)", opacity: 0 }}

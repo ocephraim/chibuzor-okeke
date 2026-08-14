@@ -42,8 +42,8 @@ const Details = styled(motion.div)`
 `;
 
 const Timeline = styled.span`
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-light);
+  background-color: var(--color-text-800);
+  color: var(--color-text-50);
   font-size: 1.2rem;
   font-weight: 700;
 

@@ -140,7 +140,7 @@ function Links() {
           disabled={!caseStudy}
           onClick={handleOpenCaseStudy}
         >
-          Full Case Study
+          Case Study
         </Button>
 
         <AnimatePresence>

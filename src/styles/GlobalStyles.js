@@ -102,11 +102,11 @@ const GlobalStyles = createGlobalStyle`
     --color-border-light: #464B4D;
 
     //cta
-    --color-primary-rgb: 76, 162, 119;
-    --color-primary: #4CA277;
+    --color-primary-rgb: 5, 198, 100;
+    --color-primary: #05c664ff;
     --color-primary-100: #B6E3CC;
-    --color-accent: #454088;
-    --color-accent-rgb: 69, 64, 136;
+    --color-accent: #0e4e69ff;
+    --color-accent-rgb: 14, 78, 105;
   }
 }
 
