@@ -1,44 +1,85 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import ProfileImage from "../../ui/ProfileImage";
 import SlidingImages from "./SlidingImages";
-import ServicesSection from "../../features/services/ServicesSection";
-import ProjectSection from "../../features/projects/ProjectSection";
-import ReviewSection from "../../features/reviews/ReviewSection";
 import ContactSection from "../../features/contactme/ContactSection";
 import Footer from "../../ui/Footer";
 import { Heading } from "../../ui/Text";
-import { RevealBlock, RevealWords } from "../../ui/RevealText";
+import { RevealWords } from "../../ui/RevealText";
+import HomeProjects from "../../features/projects/HomeProjects";
+
+const pulse = keyframes`
+  0%{
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100%{
+    transform: scale(3);
+    opacity: 0;
+  }
+`;
 
 const HeroSection = styled.section`
-  height: 80lvh;
+  height: 70lvh;
   width: 100%;
   align-items: flex-start;
+  max-width: 112rem;
 
   @media screen and (max-width: 657px) {
-    height: 68dvh;
+    height: 58dvh;
   }
 `;
 
 const HeroContent = styled.div`
   width: 100%;
-  max-width: 90rem;
-  align-self: center;
 
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: 2.4rem;
 
   & p {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 500;
 
     @media screen and (max-width: 657px) {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       line-height: 145%;
     }
+  }
+`;
+
+const StatusDiv = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: fit-content;
+
+  border: 1px solid var(--color-border-dark);
+  border-radius: 12rem;
+
+  padding: 1.6rem 2.4rem 1.6rem 1.6rem;
+`;
+
+const Pulse = styled.div`
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary);
+    opacity: 0.6;
+    border-radius: 50%;
+    animation: ${pulse} 1.5s infinite ease-in-out;
   }
 `;
 
@@ -81,26 +122,24 @@ function Home() {
           <Heading>
             <RevealWords
               onMount={true}
-              text="Product Designer crafting delightful digital experiences that drive business growth and meet the users' needs."
+              text="0→1 Product Designer with over 8 years of experience designing digital products and seamless experiences"
             />
           </Heading>
 
-          <p>
-            <RevealBlock onMount={true} delay={1.5}>
-              0→1 designer. From research & ideation, to polish & launch, and
-              subsequent iterations.
-            </RevealBlock>
-          </p>
+          <StatusDiv
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+          >
+            <Pulse></Pulse>
+            <p>Currently open to full-time/contract roles</p>
+          </StatusDiv>
         </HeroContent>
       </HeroSection>
 
       <SlidingImages />
 
-      <ServicesSection />
-
-      <ProjectSection />
-
-      <ReviewSection />
+      <HomeProjects />
 
       <ContactSection />
 

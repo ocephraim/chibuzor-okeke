@@ -44,6 +44,7 @@ const StyledTitle = styled(SectionTitle)`
 
 const StyledHeading = styled(Heading)`
   font-family: "PT Serif", serif;
+  font-weight: 700;
 
   @media screen and (max-width: 820px) {
     font-size: 3.2rem;

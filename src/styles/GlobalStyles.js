@@ -23,7 +23,7 @@ const GlobalStyles = createGlobalStyle`
     //text
     --color-text-800: #221F1C;
     --color-text-600: #4F4C4A;
-    --color-text-400: #85827F;
+    --color-text-400: #706D6B;
     --color-text-200: #BFBBB8;
     --color-text-100: #D6D3D0;
     --color-text-50: #F2F0ED;
@@ -55,7 +55,7 @@ const GlobalStyles = createGlobalStyle`
     //text
     --color-text-800: #1C2021;
     --color-text-600: #464B4D;
-    --color-text-400: #797E80;
+    --color-text-400: #606769;
     --color-text-200: #B2B6B8;
     --color-text-100: #D2D7D9;
     --color-text-50: #EDF1F2;
@@ -191,6 +191,11 @@ section {
     gap: 1.6rem;
   }
 }
+
+/* a:hover {
+  color: var(--color-primary);
+  transition: color 0.4s ease-out;
+} */
 
 `;
 
