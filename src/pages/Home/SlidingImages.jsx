@@ -74,18 +74,16 @@ const SlidingContent = styled.div`
 `;
 
 const Img = styled.img`
-  height: 47rem;
+  height: 40rem;
   width: auto;
-  /* border-radius: 2.4rem; */
 
   flex: 0 0 auto;
 
-  /* box-shadow: 0 0 30px rgba(var(--color-text-800-rgb), 0.05); */
   filter: drop-shadow(0 0 7px rgba(var(--color-text-800-rgb), 0.05));
   pointer-events: none;
 
   @media screen and (max-width: 657px) {
-    height: 30rem;
+    height: 23rem;
   }
 `;
 
@@ -96,7 +94,7 @@ function SlidingImages() {
     <Slider
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut", delay: 1.8 }}
+      transition={{ duration: 0.5, ease: "easeOut", delay: 1.5 }}
     >
       <SlidingContent>
         {loopedSlides.map((src, index) => (

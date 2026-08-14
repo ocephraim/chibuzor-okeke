@@ -1,147 +1,112 @@
-import styled, { css } from "styled-components";
+import { useState } from "react";
+import styled from "styled-components";
+import { AnimatePresence, motion } from "motion/react";
+
 import ProfileImage from "../../ui/ProfileImage";
-import Button from "../../ui/Button";
-import Icons from "../../ui/Icons";
-import { motion } from "motion/react";
+import { ReviewBg } from "../../ui/SVGs";
 
-const expandStyles = {
-  "top-left": css`
-    z-index: 3;
-    top: 0;
-    left: 0;
-    width: calc(200% + 2.4rem);
-    height: calc(200% + 2.4rem);
-  `,
-  "top-right": css`
-    z-index: 3;
-    top: 0;
-    right: 0;
-    width: calc(200% + 2.4rem);
-    height: calc(200% + 2.4rem);
-  `,
-  "bottom-left": css`
-    z-index: 3;
-    bottom: 0;
-    left: 0;
-    width: calc(200% + 2.4rem);
-    height: calc(200% + 2.4rem);
-  `,
-  "bottom-right": css`
-    z-index: 3;
-    bottom: 0;
-    right: 0;
-    width: calc(200% + 2.4rem);
-    height: calc(200% + 2.4rem);
-  `,
-};
+const ReviewContainer = styled(motion.div)`
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
 
-const collapsedStyles = {
-  "top-left": css`
-    top: 0;
-    left: 0;
-  `,
-  "top-right": css`
-    top: 0;
-    right: 0;
-  `,
-  "bottom-left": css`
-    bottom: 0;
-    left: 0;
-  `,
-  "bottom-right": css`
-    bottom: 0;
-    right: 0;
-  `,
-};
+  padding: 4rem;
+  margin: 0 auto;
 
-const StyledReview = styled(motion.div)`
-  grid-area: ${(props) => props.$gridArea};
+  position: relative;
+  min-height: 13rem;
+  width: 100%;
+  max-width: 47rem;
+  overflow: visible;
 
-  padding: 2.4rem;
-  background: var(--color-white);
-  border-radius: 1.2rem;
-  min-height: 17rem;
-  z-index: 1;
+  cursor: default;
+
+  @media screen and (max-width: 650px) {
+    padding: 3rem 2rem;
+    min-height: 10rem;
+  }
+`;
+
+const ReviewBgLayer = styled(motion.div)`
   position: absolute;
+  inset: 0;
+  pointer-events: none;
   width: 100%;
   height: 100%;
+  z-index: 1;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 2.4rem;
-  overflow: hidden;
-  cursor: pointer;
-
-  ${({ $isHighlighted, $expandAnchor }) =>
-    $isHighlighted
-      ? expandStyles[$expandAnchor]
-      : collapsedStyles[$expandAnchor]}
-
-  @media screen and (max-width: 1150px) {
-    ${({ $isHighlighted, $expandAnchor }) =>
-      $isHighlighted &&
-      css`
-        ${expandStyles[$expandAnchor]?.toString().replace(/2\.4rem/g, "1.6rem")}
-      `}
+  svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
   }
-
-  @media screen and (max-width: 657px) {
-    padding: 1.6rem;
-    min-height: 12rem;
-    position: relative;
-
-    ${({ $isHighlighted }) =>
-      $isHighlighted &&
-      `
-      z-index: 1;
-      width: 100%;
-      height: auto;
-      overflow: visible;
-    `}
-  }
-
-  transition:
-    width 0.5s cubic-bezier(0.34, 1.27, 0.64, 1),
-    height 0.5s cubic-bezier(0.34, 1.27, 0.64, 1),
-    z-index 0.5s cubic-bezier(0.34, 1.27, 0.64, 1) 0.1s;
-
-  /* transition: all 7s ease-out; */
 `;
 
-const StyledReviewHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 100%;
+const ImageContainer = styled(motion.div)`
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
 `;
 
-const ReviewSummary = styled.p`
+const ReviewContent = styled(motion.div)`
+  z-index: 3;
+`;
+
+const ReviewSummary = styled(motion.p)`
   font-family: "PT Serif", serif;
   font-weight: 700;
   font-style: italic;
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   line-height: 100%;
 
   align-self: flex-end;
 
   @media screen and (max-width: 657px) {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
 `;
 
-const ReviewText = styled.p`
+const ReviewText = styled(motion.p)`
   font-family: "PT Serif", serif;
   font-weight: 700;
   font-style: italic;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   line-height: 150%;
+  text-align: center;
 
-  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  align-items: center;
+
+  p {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+    font-style: normal;
+  }
+
+  span {
+    font-size: 1.2rem;
+    color: var(--color-text-400);
+    font-weight: normal;
+    line-height: normal;
+    font-style: normal;
+  }
 
   @media screen and (max-width: 657px) {
     font-size: 1.3rem;
+    gap: 1.6rem;
+
+    p,
+    span {
+      font-size: 1.1rem;
+    }
   }
 `;
 
@@ -150,110 +115,101 @@ const Reviewer = styled.div`
   gap: 0.8rem;
   align-items: center;
 
-  & img {
-    width: 4rem;
+  img {
     height: 4rem;
-    border: 1px solid var(--color-text-800);
+    width: auto;
   }
 
-  & div {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  & p {
-    font-weight: 500;
-  }
-
-  & span {
-    font-size: 1.2rem;
-    color: var(--color-text-400);
+  div {
+    text-align: left;
   }
 `;
 
-const StyledButton = styled(Button)`
-  transform: ${(props) => (props.$isHighlighted ? "rotateZ(45deg)" : "")};
+function Review({ review }) {
+  const { name, image, role, reviewText, reviewSummary } = review;
+  const [isHighlighted, setIsHighlighted] = useState(false);
 
-  @media screen and (max-width: 657px) {
-    & svg {
-      width: 1.6rem;
-      height: 1.6rem;
-    }
+  function toggleHighlight() {
+    setIsHighlighted(!isHighlighted);
   }
-`;
-
-const FadeText = styled(motion.div)`
-  align-self: flex-end;
-`;
-
-function Review({
-  review,
-  gridArea,
-  isHighlighted,
-  onToggleHighlight,
-  index,
-  expandAnchor,
-  onMouseEnter,
-  onMouseLeave,
-}) {
-  const { name, role, image, reviewText, reviewSummary } = review;
 
   return (
-    <StyledReview
-      initial={{ opacity: 0, y: 48 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{
-        opacity: { duration: 0.5, ease: "easeOut", delay: index * 0.08 },
-        y: { duration: 0.5, ease: "easeOut", delay: index * 0.08 },
-      }}
-      viewport={{ once: true, amount: 0.05 }}
-      $gridArea={gridArea}
-      $isHighlighted={isHighlighted}
-      $expandAnchor={expandAnchor}
-      onClick={onToggleHighlight}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      title="click to expand"
-    >
-      <StyledReviewHeader>
-        <Reviewer>
-          <ProfileImage src={image} alt={`${name} photo`} variation="round" />
-          <div>
-            <p>{name}</p>
-            <span>{role}</span>
-          </div>
-        </Reviewer>
-        <StyledButton
-          $isHighlighted={isHighlighted}
-          variation="icon"
-          icon={<Icons type="plus" />}
-          // onClick={onToggleHighlight}
-        ></StyledButton>
-      </StyledReviewHeader>
+    <AnimatePresence>
+      <ReviewContainer
+        layout
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          layout: { duration: 0.2, ease: "easeOut" },
+          duration: 0.4,
+          ease: "easeOut",
+        }}
+        viewport={{ once: true }}
+        onMouseEnter={() => setIsHighlighted(true)}
+        onMouseLeave={() => setIsHighlighted(false)}
+        onTouchStart={toggleHighlight}
+      >
+        <ReviewBgLayer
+          initial={{ clipPath: "inset(0% 100% 0% 0%)", opacity: 0 }}
+          whileInView={{ clipPath: "inset(-20% -20% -20% -20%)", opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          viewport={{ once: true }}
+        >
+          <ReviewBg />
+        </ReviewBgLayer>
 
-      {!isHighlighted ? (
-        <FadeText
-          key="summary"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+        <ImageContainer>
+          <ProfileImage
+            src={image}
+            alt={`${name} photo`}
+            layoutId={`${name}-photo`}
+          />
+        </ImageContainer>
+
+        <ReviewContent
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.4, ease: "easeOut", delay: 1.1 }}
+          viewport={{ once: true }}
         >
-          <ReviewSummary>&ldquo;{reviewSummary}&rdquo;</ReviewSummary>
-        </FadeText>
-      ) : (
-        <FadeText
-          key="full"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          <ReviewText>&ldquo;{reviewText}&rdquo;</ReviewText>
-        </FadeText>
-      )}
-    </StyledReview>
+          <AnimatePresence mode="wait">
+            {isHighlighted ? (
+              <ReviewText
+                // key="text" //key required by AnimatePresence to know when children swap
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.2 }}
+              >
+                &ldquo;{reviewText}&rdquo;
+                <Reviewer>
+                  <ProfileImage
+                    src={image}
+                    alt={`${name} photo`}
+                    layoutId={`${name}-photo`}
+                  />
+
+                  <div>
+                    <p>{name}</p>
+                    <span>{role}</span>
+                  </div>
+                </Reviewer>
+              </ReviewText>
+            ) : (
+              <ReviewSummary
+                // key="summary"
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.2 }}
+              >
+                &ldquo;{reviewSummary}&rdquo;
+              </ReviewSummary>
+            )}
+          </AnimatePresence>
+        </ReviewContent>
+      </ReviewContainer>
+    </AnimatePresence>
   );
 }
 

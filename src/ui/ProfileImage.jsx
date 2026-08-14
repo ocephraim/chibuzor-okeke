@@ -27,7 +27,7 @@ const Img = styled(motion.img)`
   }
 `;
 
-function ProfileImage({ variation = "round", src = "", alt = "", ...props }) {
+function ProfileImage({ variation = "", src = "", alt = "", ...props }) {
   return <Img src={src} alt={alt} variation={variation} {...props} />;
 }
 

@@ -1,21 +1,23 @@
 import styled from "styled-components";
 
 const Heading = styled.h1`
-  font-size: 4.8rem;
-  line-height: 112%;
+  font-family: "PT Serif, serif";
+  font-size: 5.6rem;
+  line-height: 107%;
   letter-spacing: -2%;
-  font-weight: 900;
+  font-weight: 400;
 
   @media screen and (max-width: 657px) {
-    font-size: 2.4rem;
+    font-size: 3.2rem;
   }
 `;
 
 const Heading2 = styled.h2`
+  font-family: "PT Serif, serif";
   font-size: 3.2rem;
-  line-height: 112%;
+  line-height: 105%;
   letter-spacing: -2%;
-  font-weight: 900;
+  font-weight: 400;
 
   @media screen and (max-width: 657px) {
     font-size: 1.8rem;

@@ -8,6 +8,7 @@ export function useFollowCursor(ref) {
 
   // Apply smooth spring physics to the motion values
   const springConfig = { stiffness: 300, damping: 30, mass: 0.5 };
+
   const springX = useSpring(x, springConfig);
   const springY = useSpring(y, springConfig);
 
@@ -15,10 +16,13 @@ export function useFollowCursor(ref) {
     const handleMouseMove = (e) => {
       if (!ref.current) return;
 
+      // x.set(e.clientX);
+      // y.set(e.clientY);
+
       const rect = ref.current.getBoundingClientRect();
       // Update motion values directly without triggering React re-renders
-      x.set(e.clientX - rect.left / 2);
-      y.set(e.clientY - rect.top / 2);
+      x.set(e.clientX - rect.left / 1.13);
+      y.set(e.clientY - rect.top / 1.13);
     };
 
     window.addEventListener("mousemove", handleMouseMove);

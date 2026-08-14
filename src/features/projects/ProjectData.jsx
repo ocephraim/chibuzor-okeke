@@ -1,12 +1,29 @@
+// export const projectsConfig = {
+//   featured: ["unque", "ratham", "grupa"],
+//   freelance: ["bakevillage", "watfootball"],
+//   all: [...projects.id],
+// };
+
 export const projects = [
   //Unque
   {
     id: "unque",
+    type: "featured",
     companyName: "Unque",
+    title: "Product Design Lead",
+    website: "https://www.unque.me",
     timeline: "2024 - 2025",
     servicesRendered: ["design", "strategy"],
-    summary:
-      "Helping salons 2x their revenue and customers say goodbye to long waits at their usual salon.",
+    summary: "Salon operating system that won't be binned.",
+    intro: [
+      "I joined Unque as the first tech hire. The mission was to design an operating system for the informal hair and beauty industry that would actually get adopted and be used.",
+      "With Ahmedabad, India as our initial focus area and the male section as our pilot focus group, we set out to help the Salon Owners maximize off-peak periods and make more money. For the customers, the goal is to eliminate wait times at their usual salons and find the best deals whenever possible.",
+    ],
+    stats: [
+      "🤝🏽 10,000+ Bookings",
+      "⭐️ 4.35 on Play Store",
+      "🌍 5 active cities",
+    ],
     industry: "Beauty",
     versions: [
       {
@@ -419,11 +436,23 @@ export const projects = [
   //Ratham
   {
     id: "ratham",
+    type: "featured",
     companyName: "Ratham",
+    title: "Product Design Lead",
+    website: "https://www.ratham.in",
     timeline: "2023 - 2024",
     servicesRendered: ["design", "strategy"],
-    summary:
-      "A suite of products to streamline enterprise operations and enhance employee transit efficiency.",
+    summary: "Efficient Employee Transit Suite for Enterprise",
+    intro: [
+      "Hyderabad is the capital of one of the most tech savvy states in India, Telgana, and is India’s 4th most populous city.",
+      "The highly dense city is houses the some of the largest campuses of tech Giants like Google, Facebook, Microsoft, Amazon and Apple outside of the US.",
+      "To ease commute and boost employee productivity, these companies partner with top Vendors who offer employee transport services to ensure safe and smooth travel of their staff to and from the office. ",
+    ],
+    stats: [
+      "⤵️ 80% reduction in admin escalations",
+      "⭐️ 4.8 on Google Playstore",
+      "🌍 12 active cities",
+    ],
     industry: "Transportation",
     versions: [
       {
@@ -747,16 +776,26 @@ export const projects = [
   //Grupa
   {
     id: "grupa",
+    type: "featured",
     companyName: "Grupa",
+    title: "Founding Product Designer",
+    website: "https://www.grupa.io",
     timeline: "2018 - 2023",
     servicesRendered: ["design", "engineering", "strategy"],
     summary:
       "Building an ecosystem to help innovations and elite Product teams build products faster.",
+    intro: [],
+    stats: [
+      "💰 1200% increase in annual revenue",
+      "🎨️ Cohesive design system",
+      "🌍 Expansion into international market",
+      "🤖 Pivoted to Grupa.ai",
+    ],
     industry: "Saas, AI",
     versions: [
       {
         id: "grupa_ai",
-        label: "Grupa's First AI Concept",
+        label: "Autobuild Concept Demo",
         heroImage:
           "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782644167/grupa_ai_lmpcvp.png",
         versionTitle: "Exploring A New Tech Frontier",
@@ -880,11 +919,15 @@ export const projects = [
   //BakeVillage
   {
     id: "bakevillage",
+    type: "freelance",
     companyName: "Bakevillage",
     timeline: "2021",
     servicesRendered: ["design"],
-    summary:
-      "Helping a small business manage sales more efficiently, reach more customers & expand it’s localized community.",
+    summary: "Helping a friend's business expand reach",
+    intro: [
+      "BakeVillage is a fast growing business with multiple stores on the mainland of Lagos, Nigeria. ",
+      "I was commissioned to design an online customer shopping experience to compliment an already existing walk-in experience, and a home for the local community that has organically grown around the customer base.",
+    ],
     industry: "E-commerce, Community",
     versions: [
       {
@@ -1063,18 +1106,22 @@ export const projects = [
   //WatFootball
   {
     id: "watfootball",
+    type: "freelance",
     companyName: "Watfootball",
     timeline: "2020",
     servicesRendered: ["design"],
-    summary:
-      "Bringing passionate football fans closer to the game and facilitating richer connections across borders.",
+    summary: "Bringing football fans closer to the game",
+    intro: [
+      "Football fans (with Lagos, Nigeria as a case study) meet in neighbourhood viewing centers to exchange opinions, dispute facts, play coach and enjoy the beautiful game of football.",
+      "The Watfootball team set out to bring these small communities together, facilitate richer connections across borders and keep fans up-to-date.",
+    ],
     industry: "Sports, Community",
     versions: [
       {
         id: "wf_mobile",
         label: "Fans’ Mobile App",
         heroImage:
-          "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1780907010/wf_user_vx8h0x.png",
+          "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1786618395/wf_user_vx8h0x.png",
         versionTitle: "Bringing Football Fans Closer to the Game",
         versionContributors:
           "https://res.cloudinary.com/chibuzor-okeke-portfolio/image/upload/q_auto/f_auto/v1782470541/contributors_g9sya0.png",

@@ -68,7 +68,7 @@ function AboutBody() {
   return (
     <MainText>
       <Intro>
-        <RevealWords text="I am a Designer with over seven years of experience working at the intersection of design, tech and strategy" />
+        <RevealWords text="I do my best work in a startup environment, and working at the intersection of design, tech and strategy" />
       </Intro>
       <MoreText>
         <Paragraph>
