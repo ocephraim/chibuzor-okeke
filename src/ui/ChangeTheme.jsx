@@ -160,7 +160,7 @@ const itemVariants = {
   },
 };
 
-function ThemeItem({ theme, closeNav }) {
+function ThemeItem({ theme }) {
   const [showTooltip, setShowTooltip] = useState(false);
   const { isTheme, setTheme } = useChangeTheme();
 
@@ -180,7 +180,7 @@ function ThemeItem({ theme, closeNav }) {
             setTheme(theme.id);
             return;
           }
-          closeNav();
+
           document.startViewTransition(() => setTheme(theme.id));
         }}
       >
@@ -205,7 +205,7 @@ function ThemeItem({ theme, closeNav }) {
   );
 }
 
-function ChangeTheme({ closeNav }) {
+function ChangeTheme() {
   return (
     <ThemeBlock
       variants={containerVariants}
@@ -214,7 +214,7 @@ function ChangeTheme({ closeNav }) {
       exit="exit"
     >
       {themes.map((theme) => (
-        <ThemeItem closeNav={closeNav} theme={theme} key={theme.id} />
+        <ThemeItem theme={theme} key={theme.id} />
       ))}
     </ThemeBlock>
   );
