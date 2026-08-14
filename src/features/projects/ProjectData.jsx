@@ -782,11 +782,13 @@ export const projects = [
     website: "https://www.grupa.io",
     timeline: "2018 - 2023",
     servicesRendered: ["design", "engineering", "strategy"],
-    summary:
-      "Building an ecosystem to help innovations and elite Product teams build products faster.",
-    intro: [],
+    summary: "Work Operating System for early stage founders.",
+    intro: [
+      "Grupa’s mission was to help early stage founders build great products by connecting them with elite product teams they would ordinarily not have access to",
+      "I joined the founding team and was tasked with designing solutions to automate the already manual operations of talent discovery, matching, engagement management and product delivery.",
+    ],
     stats: [
-      "💰 1200% increase in annual revenue",
+      "💰 1200% increase in AR",
       "🎨️ Cohesive design system",
       "🌍 Expansion into international market",
       "🤖 Pivoted to Grupa.ai",
