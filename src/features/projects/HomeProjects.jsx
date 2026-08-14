@@ -14,16 +14,16 @@ const FeaturedSection = styled.section`
   display: flex;
   flex-direction: column;
   gap: 6.4rem;
-  margin-top: 6.4rem;
 
   > div {
     display: flex;
     flex-direction: column;
-    gap: 8rem;
+    gap: 16rem;
   }
 
   @media screen and (max-width: 657px) {
     margin-top: 0;
+    gap: 8rem;
   }
 `;
 
