@@ -307,7 +307,7 @@ function MobileNav() {
               exit="exit"
             >
               <SectionTitle>Select Theme</SectionTitle>
-              <ChangeTheme />
+              <ChangeTheme closeNav={handleOpenNav} />
             </MidSection>
           )}
         </AnimatePresence>
