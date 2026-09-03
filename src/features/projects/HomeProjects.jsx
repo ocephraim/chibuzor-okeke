@@ -96,7 +96,7 @@ function HomeProjects() {
     <HomeProjectsContext.Provider
       value={{ handleVersionClick, handleClose, activeVersion }}
     >
-      <FeaturedSection>
+      <FeaturedSection id="work">
         <ReviewSection reviewIds="krishna" />
         <SectionTitle>./Featured Work</SectionTitle>
         <div>
