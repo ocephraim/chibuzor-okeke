@@ -282,7 +282,7 @@ function MobileNav() {
                   <StyledNavLink to="/about" onClick={handleOpenNav}>
                     • About
                   </StyledNavLink>
-                  <StyledNavLink to="/" onClick={handleWorkClick}>
+                  <StyledNavLink onClick={handleWorkClick}>
                     • Work
                   </StyledNavLink>
                   <StyledNavLink
