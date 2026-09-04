@@ -9,11 +9,9 @@ const pulse = keyframes`
   50% {transform: scaleY(1)}
 `;
 
-const Widget = styled(motion.a)`
+const Widget = styled(motion.div)`
   min-height: 43rem;
   min-width: 39rem;
-  /* height: 90%;
-  width: 75%; */
   border-radius: 4.8rem;
   padding: 3.2rem;
   position: relative;
@@ -83,7 +81,22 @@ const Bar = styled.span`
   animation-delay: ${({ $delay }) => $delay}s;
 `;
 
-// ─── Spotify Logo ─────────────────────────────────────────────────────────────
+const LAST_TRACK_KEY = "spotify-last-track";
+
+function loadCachedTrack() {
+  try {
+    const raw = localStorage.getItem(LAST_TRACK_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveCachedTrack(track) {
+  if (!track?.title) return;
+  localStorage.setItem(LAST_TRACK_KEY, JSON.stringify(track));
+}
+
 function SpotifyLogo({ size = 20, ...styles }) {
   return (
     <svg
@@ -99,17 +112,29 @@ function SpotifyLogo({ size = 20, ...styles }) {
 }
 
 export default function NowPlaying() {
-  const [song, setSong] = useState(null);
+  const [song, setSong] = useState(() => loadCachedTrack());
   const [loading, setLoading] = useState(true);
-  const [progress, setPct] = useState(0);
 
   async function fetchSong() {
     const data = await getNowPlaying();
-    console.log(data);
-    setSong(data);
-    if (data.isPlaying && data.duration) {
-      setPct((data.progress / data.duration) * 100);
+
+    if (data?.title) {
+      const track = {
+        ...data,
+        isPlaying: Boolean(data.isPlaying),
+        mode: data.isPlaying ? "playing" : "recent",
+      };
+      setSong(track);
+      saveCachedTrack(track);
+    } else {
+      setSong((prev) => {
+        if (!prev?.title) return prev;
+        const track = { ...prev, isPlaying: false, mode: "recent" };
+        saveCachedTrack(track);
+        return track;
+      });
     }
+
     setLoading(false);
   }
 
@@ -119,10 +144,16 @@ export default function NowPlaying() {
     return () => clearInterval(id);
   }, []);
 
-  useEffect(() => {}, []);
+  const hasTrack = Boolean(song?.title);
+  const label = song?.isPlaying ? "Currently Listening to" : "Recently Played";
 
   return (
-    <Widget href={song?.songUrl}>
+    <Widget
+      as={song?.songUrl ? "a" : "div"}
+      href={song?.songUrl}
+      target={song?.songUrl ? "_blank" : undefined}
+      rel={song?.songUrl ? "noopener noreferrer" : undefined}
+    >
       <Content>
         <SpotifyLogo
           size={40}
@@ -131,7 +162,7 @@ export default function NowPlaying() {
             right: "0",
           }}
         />
-        <AlbumArt src={song?.albumImageUrl} />
+        {song?.albumImageUrl && <AlbumArt src={song.albumImageUrl} alt="" />}
 
         <DetailsContainer>
           <Details>
@@ -140,19 +171,21 @@ export default function NowPlaying() {
                 color: "var(--color-text-400)",
               }}
             >
-              Currently Listening to
+              {label}
             </SectionTitle>
-            <Title>{song?.title}</Title>
-            <Paragraph>{song?.artist}</Paragraph>
+            <Title>{loading ? "Loading..." : hasTrack ? song.title : "—"}</Title>
+            {hasTrack && <Paragraph>{song.artist}</Paragraph>}
           </Details>
 
-          <Bars>
-            <Bar $h={10} $dur={0.5} $delay={0.0} />
-            <Bar $h={24} $dur={0.8} $delay={0.15} />
-            <Bar $h={15} $dur={0.5} $delay={0.2} />
-            <Bar $h={30} $dur={1} $delay={0.25} />
-            <Bar $h={14} $dur={0.6} $delay={0.1} />
-          </Bars>
+          {song?.isPlaying && (
+            <Bars>
+              <Bar $h={10} $dur={0.5} $delay={0.0} />
+              <Bar $h={24} $dur={0.8} $delay={0.15} />
+              <Bar $h={15} $dur={0.5} $delay={0.2} />
+              <Bar $h={30} $dur={1} $delay={0.25} />
+              <Bar $h={14} $dur={0.6} $delay={0.1} />
+            </Bars>
+          )}
         </DetailsContainer>
       </Content>
     </Widget>
